@@ -6,6 +6,9 @@ quotes**, drafts fallback redlines, recommends an approval route from
 **deterministic rules**, and surfaces renewal/SLA obligations — including a
 cross-document SLA → service-credit check.
 
+**Demo deck:** [docs/Zycus_Demo_Deck.pdf](docs/Zycus_Demo_Deck.pdf) — see
+[docs/README.md](docs/README.md).
+
 **Design principle:** the model is used only where language understanding is
 needed (extract, review, draft). Everything that must be exact or reproducible —
 severity, routing, dates, money, grounding — is Python. An ungrounded finding
