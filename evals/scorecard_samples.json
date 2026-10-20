@@ -1,0 +1,236 @@
+{
+  "mode": "offline_samples_vs_golden",
+  "generated_at": "2026-10-20T03:56:26.899906+00:00",
+  "runs_per_contract": 1,
+  "sample": "demo_packages vs golden/",
+  "note": "Scored from committed offline ReviewPackages \u2014 not a live Gemini run. evals/scorecard.json is the last live eval (may hard-fail on quota/model drift).",
+  "contracts": [
+    {
+      "contract": "contract_a",
+      "sample_id": "contract_a_clean",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          2,
+          2
+        ],
+        "label": "2/2"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "low_risk_queue"
+      ],
+      "route_want": "low_risk_queue",
+      "status": [
+        "complete"
+      ],
+      "source": "offline_sample"
+    },
+    {
+      "contract": "contract_b",
+      "sample_id": "contract_b_legal",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          2,
+          2
+        ],
+        "label": "2/2"
+      },
+      "overall_recall": {
+        "min": [
+          4,
+          4
+        ],
+        "label": "4/4"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "legal",
+      "status": [
+        "complete"
+      ],
+      "source": "offline_sample"
+    },
+    {
+      "contract": "contract_c",
+      "sample_id": "contract_c_legal",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          4,
+          4
+        ],
+        "label": "4/4"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "legal",
+      "status": [
+        "complete"
+      ],
+      "source": "offline_sample"
+    },
+    {
+      "contract": "contract_d",
+      "sample_id": "contract_d_legal",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          1,
+          1
+        ],
+        "label": "1/1"
+      },
+      "overall_recall": {
+        "min": [
+          3,
+          3
+        ],
+        "label": "3/3"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "legal",
+      "status": [
+        "complete"
+      ],
+      "source": "offline_sample"
+    },
+    {
+      "contract": "contract_e",
+      "sample_id": "contract_e_procurement",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          2,
+          2
+        ],
+        "label": "2/2"
+      },
+      "obligations": {
+        "min": [
+          2,
+          2
+        ],
+        "label": "2/2"
+      },
+      "security": {
+        "min": [
+          1,
+          1
+        ],
+        "label": "1/1"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "procurement_owner"
+      ],
+      "route_want": "procurement_owner",
+      "status": [
+        "complete"
+      ],
+      "source": "offline_sample"
+    }
+  ],
+  "passed": true,
+  "hard_fails": []
+}

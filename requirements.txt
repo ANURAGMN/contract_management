@@ -1,0 +1,15 @@
+# Demo UI + deterministic engine
+streamlit>=1.50,<2
+pydantic>=2
+pypdf
+pandas
+python-dotenv
+
+# Live Gemini review (only used in "Live Gemini review" mode)
+google-adk
+google-genai
+
+# Dev / fixtures
+pytest
+pytest-asyncio
+reportlab

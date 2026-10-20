@@ -1,0 +1,1213 @@
+{
+  "kind": "review",
+  "recording_id": "contract_b.pdf__20261020T034330Z",
+  "label": "contract_b.pdf",
+  "recorded_at": "2026-10-20T03:43:30+00:00",
+  "models": [
+    "gemini-flash-lite-latest"
+  ],
+  "calls": 3,
+  "failed_calls": 0,
+  "seconds": 25.2,
+  "ai_calls": [
+    {
+      "agent": "ContractMetadata",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T03:43:12+00:00",
+      "seconds": 6.97,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "ClauseFindings",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T03:43:12+00:00",
+      "seconds": 12.95,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "Redlines",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T03:43:25+00:00",
+      "seconds": 5.25,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "payload": {
+    "run_id": "20261020-0913-881c",
+    "status": "complete",
+    "metadata": {
+      "supplier": {
+        "value": "Vector Logistics Private Limited",
+        "evidence": {
+          "quote": "Vector Logistics Private Limited (\"Supplier\").",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "buyer": {
+        "value": "Acme Retail India Private Limited",
+        "evidence": {
+          "quote": "Acme Retail India Private Limited (\"Buyer\")",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "contract_value": {
+        "value": "INR 80,00,000",
+        "evidence": {
+          "quote": "The estimated annual contract value is INR 80,00,000 (Indian Rupees eighty lakh).",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "effective_date": {
+        "value": "2026-02-01",
+        "evidence": {
+          "quote": "This Logistics Master Services Agreement (\"Agreement\") is made on 1 February 2026 (the \"Effective\nDate\")",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "expiry_date": {
+        "value": "2027-01-31",
+        "evidence": {
+          "quote": "The Initial Term begins on the Effective Date and ends on 31 January 2027.",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "auto_renewal": {
+        "value": "no",
+        "evidence": {
+          "quote": "Renewal shall be by\nmutual written agreement; this Agreement does not renew automatically.",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "renewal_term_months": {
+        "value": null,
+        "evidence": null,
+        "uncertainty": "not found in supplied text"
+      },
+      "notice_period_days": {
+        "value": null,
+        "evidence": null,
+        "uncertainty": "not found in supplied text"
+      },
+      "renewal_notice_basis": {
+        "value": null,
+        "evidence": null,
+        "uncertainty": "not found in supplied text"
+      },
+      "payment_terms_days": {
+        "value": "45",
+        "evidence": {
+          "quote": "The Buyer shall pay undisputed invoices within forty-five (45) days of invoice date (Net 45).",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "liability_cap": {
+        "value": "1x annual fees, with exceptions for general indemnity",
+        "evidence": {
+          "quote": "Save as set out in this Clause 5, the total aggregate liability of each party under this Agreement shall\nnot exceed the total fees paid in the twelve (12) months preceding the claim.",
+          "page": 2
+        },
+        "uncertainty": null
+      },
+      "governing_law": {
+        "value": "India",
+        "evidence": {
+          "quote": "This Agreement is governed by the laws of India, and the courts at Bengaluru shall have exclusive\njurisdiction.",
+          "page": 1
+        },
+        "uncertainty": null
+      },
+      "sla_target_pct": {
+        "value": "96",
+        "evidence": {
+          "quote": "Service credits of 3% of the monthly fee apply for each percentage\npoint below a 96% on-time target, capped at 20% of the monthly fee.",
+          "page": 2
+        },
+        "uncertainty": null
+      },
+      "service_credit_rule": {
+        "value": "3% of the monthly fee per percentage point below a 96% on-time target, capped at 20% of the monthly fee",
+        "evidence": {
+          "quote": "Service credits of 3% of the monthly fee apply for each percentage\npoint below a 96% on-time target, capped at 20% of the monthly fee.",
+          "page": 2
+        },
+        "uncertainty": null
+      },
+      "processes_personal_data": {
+        "value": "yes",
+        "evidence": {
+          "quote": "The parties shall enter into a Data Processing Agreement consistent with applicable data protection\nlaw before any processing of personal data commences.",
+          "page": 3
+        },
+        "uncertainty": null
+      }
+    },
+    "findings": [
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "LIABILITY-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "Save as set out in this Clause 5, the total aggregate liability of each party under this Agreement shall not exceed the total fees paid in the twelve (12) months preceding the claim.",
+                "page": 2
+              }
+            ],
+            "extracted_value": "total fees paid in the twelve (12) months preceding the claim",
+            "cross_references": [
+              "Clause 12"
+            ],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "walk_away",
+        "severity": "high",
+        "requires_legal": true,
+        "rule_trace": "LIABILITY-001: total fees paid in the twelve (12) months preceding the claim -> preferred (vs preferred: 1x fees paid in the prior 12 months (or equivalent trailing-12-month fees)) | escalated: indemnity (LIABILITY-002) sits outside the cap"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "LIABILITY-002",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "The Supplier's obligations under this Clause 12 shall not be subject to any limitation of liability, and the cap set out in Clause 5 shall not apply to this Clause 12.",
+                "page": 4
+              }
+            ],
+            "extracted_value": "uncapped",
+            "cross_references": [
+              "Clause 5",
+              "Clause 11",
+              "Clause 12"
+            ],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "walk_away",
+        "severity": "high",
+        "requires_legal": true,
+        "rule_trace": "LIABILITY-002: uncapped -> walk-away (vs preferred: Indemnity within the cap, except IP and data breach carve-outs)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "PAYMENT-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "The Buyer shall pay undisputed invoices within forty-five (45) days of invoice date (Net 45).",
+                "page": 1
+              }
+            ],
+            "extracted_value": "Net 45",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "preferred",
+        "severity": "medium",
+        "requires_legal": false,
+        "rule_trace": "PAYMENT-001: Net 45 -> preferred (vs preferred: Net 45 or longer)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "RENEWAL-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "Renewal shall be by mutual written agreement; this Agreement does not renew automatically.",
+                "page": 1
+              }
+            ],
+            "extracted_value": "No auto-renewal",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "preferred",
+        "severity": "medium",
+        "requires_legal": false,
+        "rule_trace": "RENEWAL-001: No auto-renewal -> preferred (vs preferred: No auto-renewal, or notice period of 60 days)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "TERMINATION-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "Neither party may terminate this Agreement for convenience.",
+                "page": 3
+              }
+            ],
+            "extracted_value": "No buyer convenience right",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "walk_away",
+        "severity": "medium",
+        "requires_legal": false,
+        "rule_trace": "TERMINATION-001: No buyer convenience right -> walk-away (vs preferred: Buyer may terminate for convenience on 30 days' notice)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "DATA-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "The parties shall enter into a Data Processing Agreement consistent with applicable data protection law before any processing of personal data commences.",
+                "page": 3
+              }
+            ],
+            "extracted_value": "DPA required before processing",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "preferred",
+        "severity": "high",
+        "requires_legal": true,
+        "rule_trace": "DATA-001: DPA required before processing -> preferred (vs preferred: DPA or equivalent clause present)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "SLA-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+                "page": 2
+              }
+            ],
+            "extracted_value": "96% on-time target",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "walk_away",
+        "severity": "medium",
+        "requires_legal": false,
+        "rule_trace": "SLA-001: 96% on-time target -> walk-away (vs preferred: Measurable platform uptime >= 99.9% with service credits)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "PRICE-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "The Supplier may increase the Charges at its sole discretion upon thirty (30) days' written notice to the Buyer.",
+                "page": 2
+              }
+            ],
+            "extracted_value": "Unilateral increases",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "walk_away",
+        "severity": "medium",
+        "requires_legal": false,
+        "rule_trace": "PRICE-001: Unilateral increases -> walk-away (vs preferred: Fixed for the term)"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "LAW-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "This Agreement is governed by the laws of India, and the courts at Bengaluru shall have exclusive jurisdiction.",
+                "page": 1
+              }
+            ],
+            "extracted_value": "India (Bengaluru courts)",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "preferred",
+        "severity": "low",
+        "requires_legal": true,
+        "rule_trace": "LAW-001: India (Bengaluru courts) -> preferred (vs preferred: India (Bengaluru courts))"
+      },
+      {
+        "grounded": {
+          "finding": {
+            "rule_id": "ASSIGN-001",
+            "found": true,
+            "evidence": [
+              {
+                "quote": "Neither party may assign this Agreement without the prior written consent of the other, such consent not to be unreasonably withheld.",
+                "page": 3
+              }
+            ],
+            "extracted_value": "No assignment without consent",
+            "cross_references": [],
+            "note": null
+          },
+          "grounding": "exact",
+          "warnings": []
+        },
+        "status": "preferred",
+        "severity": "low",
+        "requires_legal": false,
+        "rule_trace": "ASSIGN-001: No assignment without consent -> preferred (vs preferred: No assignment without consent)"
+      }
+    ],
+    "dropped": [],
+    "route": {
+      "route": "legal",
+      "trace": [
+        "R2: LIABILITY-001: total fees paid in the twelve (12) months preceding the claim -> preferred (vs preferred: 1x fees paid in the prior 12 months (or equivalent trailing-12-month fees)) | escalated: indemnity (LIABILITY-002) sits outside the cap",
+        "R2: LIABILITY-002: uncapped -> walk-away (vs preferred: Indemnity within the cap, except IP and data breach carve-outs)"
+      ]
+    },
+    "redlines": [
+      {
+        "redline": {
+          "rule_id": "LIABILITY-001",
+          "original": {
+            "quote": "Save as set out in this Clause 5, the total aggregate liability of each party under this Agreement shall not exceed the total fees paid in the twelve (12) months preceding the claim.",
+            "page": 2
+          },
+          "proposed_text": "The total aggregate liability of each party under this Agreement shall not exceed the total fees paid by the Buyer to the Supplier in the twelve (12) months preceding the event giving rise to the claim.",
+          "rationale": "Updated to meet the LIABILITY-001 fallback position regarding annual fees specification."
+        },
+        "passed": true,
+        "problems": []
+      },
+      {
+        "redline": {
+          "rule_id": "LIABILITY-002",
+          "original": {
+            "quote": "The Supplier's obligations under this Clause 12 shall not be subject to any limitation of liability, and the cap set out in Clause 5 shall not apply to this Clause 12.",
+            "page": 4
+          },
+          "proposed_text": "The Supplier's indemnification obligations under this Clause shall be subject to a separate aggregate cap not exceeding two (2) times the annual fees, save that indemnities for intellectual property infringement and data breach shall remain uncapped.",
+          "rationale": "Replaced uncapped general indemnity with a separate cap per LIABILITY-002 fallback."
+        },
+        "passed": true,
+        "problems": []
+      },
+      {
+        "redline": {
+          "rule_id": "TERMINATION-001",
+          "original": {
+            "quote": "Neither party may terminate this Agreement for convenience.",
+            "page": 3
+          },
+          "proposed_text": "The Buyer may terminate this Agreement for convenience at any time on sixty (60) days' prior written notice to the Supplier.",
+          "rationale": "Added buyer termination for convenience per TERMINATION-001 fallback."
+        },
+        "passed": false,
+        "problems": [
+          "much longer than original"
+        ]
+      },
+      {
+        "redline": {
+          "rule_id": "SLA-001",
+          "original": {
+            "quote": "Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+            "page": 2
+          },
+          "proposed_text": "ESCALATE: Fallback requires measurable uptime of at least 99.9%, which contradicts the core contract terms.",
+          "rationale": "Cannot meet the SLA-001 fallback text directly without altering the underlying uptime metrics significantly."
+        },
+        "passed": false,
+        "problems": [
+          "drafter escalated"
+        ]
+      },
+      {
+        "redline": {
+          "rule_id": "PRICE-001",
+          "original": {
+            "quote": "The Supplier may increase the Charges at its sole discretion upon thirty (30) days' written notice to the Buyer.",
+            "page": 2
+          },
+          "proposed_text": "Fees are fixed for the initial term. Any increase on renewal shall not exceed the lower of CPI or five percent (5%) per annum.",
+          "rationale": "Replaced unilateral price increases with price protection per PRICE-001 fallback."
+        },
+        "passed": false,
+        "problems": [
+          "defined term removed",
+          "new obligation added"
+        ]
+      }
+    ],
+    "obligations": [],
+    "security": {
+      "pre": [],
+      "model": []
+    },
+    "stage_status": {
+      "intake": "ok",
+      "grounding": "ok",
+      "rules": "ok",
+      "route": "legal",
+      "knowledge": "ok"
+    },
+    "file_name": "contract_b.pdf",
+    "playbook_version": "demo-v1",
+    "credit_claim": null,
+    "quotation_comparison": null,
+    "is_sample": false,
+    "sample_label": null,
+    "request_id": null,
+    "knowledge_groundings": [
+      {
+        "intent": "liability",
+        "rule_id": "LIABILITY-001",
+        "contract_quote": "Save as set out in this Clause 5, the total aggregate liability of each party under this Agreement shall not exceed the total fees paid in the twelve (12) months preceding the claim.",
+        "contract_page": 2,
+        "assessment": "Retrieved approved knowledge for this clause category (illustrative demo policy).",
+        "action": "Review side-by-side evidence; apply deterministic playbook rules for severity/routing.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-11154ba145",
+            "chunk_id": "chk-da179cd06f75",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred: aggregate liability capped at fees paid in the prior 12 months (trailing-12).\nFallback: 1x annual fees. Walk-away: uncapped general liability.",
+            "relevance_score": 11.792,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Liability"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-9b0809086c",
+            "chunk_id": "chk-12676ab4e93d",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: This Agreement shall renew for successive twelve (12) month terms unless either party gives at least sixty (60) days' written notice of non-renewal before the end of the then-current term.",
+            "relevance_score": 10.564,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Auto-renewal approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-37cdb5ae58",
+            "chunk_id": "chk-e54911d754d2",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred: indemnity within the liability cap except IP and data-breach carve-outs.\nWalk-away: uncapped general indemnity.",
+            "relevance_score": 8.361,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Indemnity"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-cbc2a9c6a2",
+            "chunk_id": "chk-aa577caeed38",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: The Supplier shall meet a measurable service level of at least 99.9% platform availability per calendar month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee.",
+            "relevance_score": 5.936,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "SLA approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "liability cap indemnity limitation of liability; Save as set out in this Clause 5, the total aggregate liability of each party under this Agreement shall not exceed the total fees paid in the twelve (12) month",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "approved_clauses",
+              "negotiation_playbook"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-da179cd06f75",
+            "chk-12676ab4e93d",
+            "chk-e54911d754d2",
+            "chk-aa577caeed38"
+          ],
+          "scores": {
+            "chk-da179cd06f75": 11.792,
+            "chk-12676ab4e93d": 10.564,
+            "chk-e54911d754d2": 8.361,
+            "chk-aa577caeed38": 5.936
+          },
+          "selected_evidence_ids": [
+            "ev-11154ba145",
+            "ev-9b0809086c",
+            "ev-37cdb5ae58",
+            "ev-cbc2a9c6a2"
+          ],
+          "timestamp": "2026-10-20T03:43:30.660696Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      },
+      {
+        "intent": "payment",
+        "rule_id": "PAYMENT-001",
+        "contract_quote": "The Buyer shall pay undisputed invoices within forty-five (45) days of invoice date (Net 45).",
+        "contract_page": 1,
+        "assessment": "Retrieved approved knowledge for this clause category (illustrative demo policy).",
+        "action": "Review side-by-side evidence; apply deterministic playbook rules for severity/routing.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-f5713ba7ac",
+            "chunk_id": "chk-a02ea885a0dd",
+            "document_id": "pol-payment-v1",
+            "title": "Payment Terms Policy (Demo)",
+            "excerpt": "Preferred payment terms are Net 45. Net 30 is an acceptable fallback with Finance awareness.\nTerms shorter than Net 30 (for example Net 15) are a commercial walk-away requiring Procurement and Finance approval.",
+            "relevance_score": 10.2,
+            "page_number": null,
+            "heading_path": [
+              "Payment Terms Policy (Demo)",
+              "Standard payment terms"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/payment_terms_policy.md",
+            "document_type": "payment_terms_policy",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-275cccd9eb",
+            "chunk_id": "chk-d3b4229fe483",
+            "document_id": "pol-payment-v1",
+            "title": "Payment Terms Policy (Demo)",
+            "excerpt": "Prepayment beyond the first month of fees requires Finance authorization.",
+            "relevance_score": 5.137,
+            "page_number": null,
+            "heading_path": [
+              "Payment Terms Policy (Demo)",
+              "Prepayment"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/payment_terms_policy.md",
+            "document_type": "payment_terms_policy",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-03d63c3b2b",
+            "chunk_id": "chk-e5a076a56fcc",
+            "document_id": "pol-payment-v1",
+            "title": "Payment Terms Policy (Demo)",
+            "excerpt": "> Synthetic demo data — not real company policy or legal advice.",
+            "relevance_score": 2.605,
+            "page_number": null,
+            "heading_path": [
+              "Payment Terms Policy (Demo)"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/payment_terms_policy.md",
+            "document_type": "payment_terms_policy",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "payment terms Net 45 Net 30 invoicing; The Buyer shall pay undisputed invoices within forty-five (45) days of invoice date (Net 45).",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "payment_terms_policy",
+              "procurement_policy"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-a02ea885a0dd",
+            "chk-d3b4229fe483",
+            "chk-e5a076a56fcc"
+          ],
+          "scores": {
+            "chk-a02ea885a0dd": 10.2,
+            "chk-d3b4229fe483": 5.137,
+            "chk-e5a076a56fcc": 2.605
+          },
+          "selected_evidence_ids": [
+            "ev-f5713ba7ac",
+            "ev-275cccd9eb",
+            "ev-03d63c3b2b"
+          ],
+          "timestamp": "2026-10-20T03:43:30.660696Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      },
+      {
+        "intent": "renewal",
+        "rule_id": "RENEWAL-001",
+        "contract_quote": "Renewal shall be by mutual written agreement; this Agreement does not renew automatically.",
+        "contract_page": 1,
+        "assessment": "Retrieved approved renewal policy (preferred 60-day notice).",
+        "action": "Compare extracted notice days against preferred 60 / walk-away <30.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-74356a8a90",
+            "chunk_id": "chk-7659e47cfb9a",
+            "document_id": "pol-renewal-v1",
+            "title": "Renewal & Exit Policy (Demo)",
+            "excerpt": "Preferred auto-renewal notice period is 60 days before the end of the then-current term.\nNotice of 90 days is longer than preferred and is a procurement process burden (deviation), not automatically a legal violation.\nNotice shorter than 30 days is a walk-away for Legal/Procurement review.",
+            "relevance_score": 14.026,
+            "page_number": null,
+            "heading_path": [
+              "Renewal & Exit Policy (Demo)",
+              "Auto-renewal notice period"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/renewal_and_exit_policy.md",
+            "document_type": "renewal_and_exit_policy",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-c90805b5e9",
+            "chunk_id": "chk-12676ab4e93d",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: This Agreement shall renew for successive twelve (12) month terms unless either party gives at least sixty (60) days' written notice of non-renewal before the end of the then-current term.",
+            "relevance_score": 12.824,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Auto-renewal approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-88eb93f02f",
+            "chunk_id": "chk-6099d4cf4eb2",
+            "document_id": "neg-playbook-v1",
+            "title": "Negotiation Playbook (Demo)",
+            "excerpt": "Target: 60 days notice. Acceptable: 30–60 days.\nConcessions below 30 days require Legal approval.",
+            "relevance_score": 8.023,
+            "page_number": null,
+            "heading_path": [
+              "Negotiation Playbook (Demo)",
+              "Renewal notice"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/negotiation_playbook.md",
+            "document_type": "negotiation_playbook",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-fbbd187830",
+            "chunk_id": "chk-5fab8769a4f6",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred: Buyer may terminate for convenience on 30 days' notice. Fallback: 60 days' notice.",
+            "relevance_score": 7.443,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Termination for convenience"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "auto-renewal notice period preferred 60 days renewal policy; Renewal shall be by mutual written agreement; this Agreement does not renew automatically.",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "renewal_and_exit_policy",
+              "approved_clauses",
+              "negotiation_playbook"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-7659e47cfb9a",
+            "chk-12676ab4e93d",
+            "chk-6099d4cf4eb2",
+            "chk-5fab8769a4f6"
+          ],
+          "scores": {
+            "chk-7659e47cfb9a": 14.026,
+            "chk-12676ab4e93d": 12.824,
+            "chk-6099d4cf4eb2": 8.023,
+            "chk-5fab8769a4f6": 7.443
+          },
+          "selected_evidence_ids": [
+            "ev-74356a8a90",
+            "ev-c90805b5e9",
+            "ev-88eb93f02f",
+            "ev-fbbd187830"
+          ],
+          "timestamp": "2026-10-20T03:43:30.661749Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      },
+      {
+        "intent": "termination",
+        "rule_id": "TERMINATION-001",
+        "contract_quote": "Neither party may terminate this Agreement for convenience.",
+        "contract_page": 3,
+        "assessment": "Retrieved approved knowledge for this clause category (illustrative demo policy).",
+        "action": "Review side-by-side evidence; apply deterministic playbook rules for severity/routing.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-e2e54ad849",
+            "chunk_id": "chk-5fab8769a4f6",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred: Buyer may terminate for convenience on 30 days' notice. Fallback: 60 days' notice.",
+            "relevance_score": 8.0,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Termination for convenience"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-0667063903",
+            "chunk_id": "chk-12676ab4e93d",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: This Agreement shall renew for successive twelve (12) month terms unless either party gives at least sixty (60) days' written notice of non-renewal before the end of the then-current term.",
+            "relevance_score": 4.928,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Auto-renewal approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-a1a00b0f7a",
+            "chunk_id": "chk-7659e47cfb9a",
+            "document_id": "pol-renewal-v1",
+            "title": "Renewal & Exit Policy (Demo)",
+            "excerpt": "Preferred auto-renewal notice period is 60 days before the end of the then-current term.\nNotice of 90 days is longer than preferred and is a procurement process burden (deviation), not automatically a legal violation.\nNotice shorter than 30 days is a walk-away for Legal/Procurement review.",
+            "relevance_score": 3.394,
+            "page_number": null,
+            "heading_path": [
+              "Renewal & Exit Policy (Demo)",
+              "Auto-renewal notice period"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/renewal_and_exit_policy.md",
+            "document_type": "renewal_and_exit_policy",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "termination for convenience notice period; Neither party may terminate this Agreement for convenience.",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "approved_clauses",
+              "renewal_and_exit_policy"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-5fab8769a4f6",
+            "chk-12676ab4e93d",
+            "chk-7659e47cfb9a"
+          ],
+          "scores": {
+            "chk-5fab8769a4f6": 8.0,
+            "chk-12676ab4e93d": 4.928,
+            "chk-7659e47cfb9a": 3.394
+          },
+          "selected_evidence_ids": [
+            "ev-e2e54ad849",
+            "ev-0667063903",
+            "ev-a1a00b0f7a"
+          ],
+          "timestamp": "2026-10-20T03:43:30.662747Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      },
+      {
+        "intent": "data",
+        "rule_id": "DATA-001",
+        "contract_quote": "The parties shall enter into a Data Processing Agreement consistent with applicable data protection law before any processing of personal data commences.",
+        "contract_page": 3,
+        "assessment": "Retrieved approved knowledge for this clause category (illustrative demo policy).",
+        "action": "Review side-by-side evidence; apply deterministic playbook rules for severity/routing.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-b849ccd9ca",
+            "chunk_id": "chk-d8b51e72c5d8",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred: parties enter a DPA consistent with applicable data protection law before personal data processing begins.",
+            "relevance_score": 16.068,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Data protection"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-15d2aace59",
+            "chunk_id": "chk-447d19a631cf",
+            "document_id": "pol-security-v1",
+            "title": "Security & Privacy Standard (Demo)",
+            "excerpt": "Where personal data is processed, a signed Data Processing Agreement (DPA) or equivalent clause is mandatory before go-live.\nMissing DPA is a Security/Privacy and Legal exception.",
+            "relevance_score": 11.83,
+            "page_number": null,
+            "heading_path": [
+              "Security & Privacy Standard (Demo)",
+              "Data processing agreement"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/security_privacy_standard.md",
+            "document_type": "security_privacy_standard",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-5b7e9cc796",
+            "chunk_id": "chk-aa577caeed38",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: The Supplier shall meet a measurable service level of at least 99.9% platform availability per calendar month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee.",
+            "relevance_score": 5.707,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "SLA approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-b81cb28f75",
+            "chunk_id": "chk-12676ab4e93d",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: This Agreement shall renew for successive twelve (12) month terms unless either party gives at least sixty (60) days' written notice of non-renewal before the end of the then-current term.",
+            "relevance_score": 5.4,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "Auto-renewal approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "data processing agreement DPA personal data privacy; The parties shall enter into a Data Processing Agreement consistent with applicable data protection law before any processing of personal data commences.",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "security_privacy_standard",
+              "approved_clauses"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-d8b51e72c5d8",
+            "chk-447d19a631cf",
+            "chk-aa577caeed38",
+            "chk-12676ab4e93d"
+          ],
+          "scores": {
+            "chk-d8b51e72c5d8": 16.068,
+            "chk-447d19a631cf": 11.83,
+            "chk-aa577caeed38": 5.707,
+            "chk-12676ab4e93d": 5.4
+          },
+          "selected_evidence_ids": [
+            "ev-b849ccd9ca",
+            "ev-15d2aace59",
+            "ev-5b7e9cc796",
+            "ev-b81cb28f75"
+          ],
+          "timestamp": "2026-10-20T03:43:30.663751Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      },
+      {
+        "intent": "sla",
+        "rule_id": "SLA-001",
+        "contract_quote": "Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+        "contract_page": 2,
+        "assessment": "Retrieved approved SLA policy requiring 99.9% minimum uptime.",
+        "action": "Compare extracted uptime against 99.9% and route if below.",
+        "knowledge_evidence": [
+          {
+            "evidence_id": "ev-98e32333f5",
+            "chunk_id": "chk-aa577caeed38",
+            "document_id": "clause-playbook-v1",
+            "title": "Legal Clause Playbook (Demo)",
+            "excerpt": "Preferred clause: The Supplier shall meet a measurable service level of at least 99.9% platform availability per calendar month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee.",
+            "relevance_score": 20.573,
+            "page_number": null,
+            "heading_path": [
+              "Legal Clause Playbook (Demo)",
+              "SLA approved wording"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/legal_clause_playbook.md",
+            "document_type": "approved_clauses",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-f120f5d937",
+            "chunk_id": "chk-2fb7e2f323ca",
+            "document_id": "pol-sla-v1",
+            "title": "SLA Policy (Demo)",
+            "excerpt": "Preferred service credits are at least 5% of monthly fees per percentage point missed, capped at 20% of monthly fees.\nMeasurement window is calendar month unless otherwise approved.",
+            "relevance_score": 13.711,
+            "page_number": null,
+            "heading_path": [
+              "SLA Policy (Demo)",
+              "Service credits"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/sla_policy.md",
+            "document_type": "sla_policy",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-fbd18c1010",
+            "chunk_id": "chk-e71809fa2cc3",
+            "document_id": "pol-sla-v1",
+            "title": "SLA Policy (Demo)",
+            "excerpt": "The minimum acceptable platform uptime is 99.9% measured per calendar month.\nOffers below 99.9% are an operational exception and must be routed to the Business Owner and Procurement.",
+            "relevance_score": 10.286,
+            "page_number": null,
+            "heading_path": [
+              "SLA Policy (Demo)",
+              "Minimum uptime"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/sla_policy.md",
+            "document_type": "sla_policy",
+            "is_precedent": false
+          },
+          {
+            "evidence_id": "ev-369d79cd6f",
+            "chunk_id": "chk-1095bd23cd19",
+            "document_id": "neg-playbook-v1",
+            "title": "Negotiation Playbook (Demo)",
+            "excerpt": "Mandatory: 99.9% uptime with measurable credits.\nFallback: 99.5% only with Business Owner and Procurement escalation.\nWalk-away: no measurable SLA.",
+            "relevance_score": 7.125,
+            "page_number": null,
+            "heading_path": [
+              "Negotiation Playbook (Demo)",
+              "Uptime / SLA"
+            ],
+            "version": "1.0",
+            "status": "approved",
+            "source_path": "C:/Users/anurag.mn/Desktop/Zycus/supplier-contract-review/data/knowledge/docs/negotiation_playbook.md",
+            "document_type": "negotiation_playbook",
+            "is_precedent": false
+          }
+        ],
+        "abstained": false,
+        "audit": {
+          "query": "minimum uptime 99.9% SLA service credits platform availability; Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+          "filters": {
+            "statuses": [
+              "approved"
+            ],
+            "document_types": [
+              "sla_policy",
+              "approved_clauses",
+              "negotiation_playbook"
+            ],
+            "exclude_precedent_from_normative": true,
+            "as_of": null,
+            "jurisdiction": null,
+            "include_precedent": false
+          },
+          "returned_chunk_ids": [
+            "chk-aa577caeed38",
+            "chk-2fb7e2f323ca",
+            "chk-e71809fa2cc3",
+            "chk-1095bd23cd19"
+          ],
+          "scores": {
+            "chk-aa577caeed38": 20.573,
+            "chk-2fb7e2f323ca": 13.711,
+            "chk-e71809fa2cc3": 10.286,
+            "chk-1095bd23cd19": 7.125
+          },
+          "selected_evidence_ids": [
+            "ev-98e32333f5",
+            "ev-f120f5d937",
+            "ev-fbd18c1010",
+            "ev-369d79cd6f"
+          ],
+          "timestamp": "2026-10-20T03:43:30.665752Z",
+          "corpus_id": "demo-knowledge-v1",
+          "mode": "lexical"
+        }
+      }
+    ],
+    "provenance": "live",
+    "reviewed_at": "2026-10-20T03:43:30+00:00",
+    "ai_calls": [
+      {
+        "agent": "ContractMetadata",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T03:43:12+00:00",
+        "seconds": 6.97,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "ClauseFindings",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T03:43:12+00:00",
+        "seconds": 12.95,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "Redlines",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T03:43:25+00:00",
+        "seconds": 5.25,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      }
+    ]
+  },
+  "meta": {
+    "status": "complete",
+    "route": "legal"
+  }
+}

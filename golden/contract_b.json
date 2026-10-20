@@ -1,0 +1,131 @@
+{
+  "contract": "contract_b.pdf",
+  "expected_route": "legal",
+  "metadata": {
+    "supplier": "Vector Logistics Private Limited",
+    "buyer": "Acme Retail India Private Limited",
+    "effective_date": "2026-02-01",
+    "expiry_date": "2027-01-31",
+    "payment_terms_days": "45"
+  },
+  "issues": [
+    {
+      "id": "B1",
+      "type": "deviation",
+      "rule_id": "LIABILITY-002",
+      "severity": "high",
+      "status": "walk_away",
+      "page": 4,
+      "span": "The Supplier's obligations under this Clause 12 shall not be subject to any limitation of liability, and the cap set out in Clause 5 shall not apply to this Clause 12.",
+      "redline_must": [
+        "cap stated as multiple of fees",
+        "IP and data breach carve-out kept"
+      ]
+    },
+    {
+      "id": "B2",
+      "type": "deviation",
+      "rule_id": "LIABILITY-001",
+      "severity": "high",
+      "status": "walk_away",
+      "page": 2,
+      "span": "The foregoing limitation shall not apply to the Supplier's obligations except as set out in Clause 12 (Indemnity)",
+      "redline_must": [
+        "cap applies without a clause 12 carve-out"
+      ]
+    },
+    {
+      "id": "B3",
+      "type": "deviation",
+      "rule_id": "TERMINATION-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 3,
+      "span": "Neither party may terminate this Agreement for convenience.",
+      "redline_must": [
+        "buyer convenience right added"
+      ]
+    },
+    {
+      "id": "B4",
+      "type": "deviation",
+      "rule_id": "PRICE-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 2,
+      "span": "The Supplier may increase the Charges at its sole discretion upon thirty (30) days' written notice",
+      "redline_must": [
+        "increase capped at CPI or 5%"
+      ]
+    },
+    {
+      "id": "B5",
+      "type": "deviation",
+      "rule_id": "SLA-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 2,
+      "span": "Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+      "redline_must": [
+        "platform uptime 99.9% — on-time delivery SLA alone is not an uptime commitment"
+      ],
+      "label_note": "Playbook demo-v1 treats a non-uptime SLA as walk-away. Remove if logistics contracts get their own SLA rule."
+    }
+  ],
+  "decoys": [
+    {
+      "rule_id": "LIABILITY-002",
+      "page": 3,
+      "span": "The Supplier's liability under this Clause 11 for intellectual property infringement shall be uncapped.",
+      "id": "B-D1",
+      "reason": "Acceptable: an uncapped IP-infringement indemnity is a permitted carve-out; the deviation in B is the general indemnity in Clause 12."
+    }
+  ],
+  "expected_outcomes": {
+    "LIABILITY-001": "walk_away",
+    "LIABILITY-002": "walk_away",
+    "PAYMENT-001": "preferred",
+    "RENEWAL-001": "preferred",
+    "TERMINATION-001": "walk_away",
+    "DATA-001": "preferred",
+    "SLA-001": "walk_away",
+    "PRICE-001": "walk_away",
+    "LAW-001": "preferred",
+    "ASSIGN-001": "preferred"
+  },
+  "playbook_version": "demo-v1",
+  "expected_approvals": [
+    {
+      "rule_id": "LIABILITY-001",
+      "teams": [
+        "legal"
+      ]
+    },
+    {
+      "rule_id": "LIABILITY-002",
+      "teams": [
+        "legal"
+      ]
+    },
+    {
+      "rule_id": "PRICE-001",
+      "teams": [
+        "finance",
+        "procurement"
+      ]
+    },
+    {
+      "rule_id": "SLA-001",
+      "teams": [
+        "business_owner",
+        "procurement"
+      ]
+    },
+    {
+      "rule_id": "TERMINATION-001",
+      "teams": [
+        "legal"
+      ]
+    }
+  ]
+}

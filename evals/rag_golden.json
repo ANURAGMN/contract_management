@@ -1,0 +1,32 @@
+{
+  "note": "Hand-labelled relevance for the demo knowledge corpus. 'relevant' lists every document a reviewer would accept as answering the query (graded: 2 = primary source, 1 = supporting). Queries with 'expect_abstain' must return no answer. Labels are written from the documents, never from retriever output.",
+  "k": 5,
+  "queries": [
+    {"id": "Q1", "query": "What notice period does our policy require for auto-renewal?",
+     "category": "policy", "relevant": {"pol-renewal-v1": 2, "clause-playbook-v1": 1}},
+    {"id": "Q2", "query": "What is the minimum platform uptime required in the SLA policy?",
+     "category": "policy", "relevant": {"pol-sla-v1": 2, "clause-playbook-v1": 1}},
+    {"id": "Q3", "query": "What service credits should apply when uptime is missed?",
+     "category": "policy", "relevant": {"pol-sla-v1": 2, "clause-playbook-v1": 1}},
+    {"id": "Q4", "query": "Which payment terms are acceptable and when is Net 15 a walk-away?",
+     "category": "policy", "relevant": {"pol-payment-v1": 2, "clause-playbook-v1": 1}},
+    {"id": "Q5", "query": "Is a data processing agreement mandatory when personal data is processed?",
+     "category": "policy", "relevant": {"pol-security-v1": 2, "clause-playbook-v1": 1}},
+    {"id": "Q6", "query": "What is the approved liability cap wording?",
+     "category": "approved_clause", "relevant": {"clause-playbook-v1": 2}},
+    {"id": "Q7", "query": "Approved termination for convenience clause and notice",
+     "category": "approved_clause", "relevant": {"clause-playbook-v1": 2, "pol-renewal-v1": 1}},
+    {"id": "Q8", "query": "Who must approve a purchase above budget or a commercial exception?",
+     "category": "policy", "relevant": {"pol-procurement-v1": 2}},
+    {"id": "Q9", "query": "What concessions can the buyer trade during price negotiation?",
+     "category": "negotiation", "relevant": {"neg-playbook-v1": 2, "neg-outcomes-v1": 1}},
+    {"id": "Q10", "query": "What did we agree with CloudSoft in the previous contract?",
+     "category": "historical", "relevant": {"hist-cloudsoft-2024": 2, "neg-outcomes-v1": 1},
+     "allow_precedent": true},
+    {"id": "Q11", "query": "What is our policy for lunar mineral royalties?",
+     "category": "out_of_scope", "relevant": {}, "expect_abstain": true},
+    {"id": "Q12", "query": "Rules for employee cafeteria menu planning",
+     "category": "out_of_scope", "relevant": {}, "expect_abstain": true}
+  ],
+  "must_not_retrieve_when_normative": ["pol-sla-retired", "pol-renewal-draft"]
+}

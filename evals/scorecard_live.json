@@ -1,0 +1,1491 @@
+{
+  "overall": "fail",
+  "gates_passed": 9,
+  "gates_applicable": 10,
+  "failed_gates": [
+    "Critical-risk recall"
+  ],
+  "below_target": [
+    "Overall issue recall",
+    "Evidence relevance (proxy)",
+    "Obligation extraction",
+    "No-answer accuracy"
+  ],
+  "metrics": [
+    {
+      "key": "critical_recall",
+      "name": "Critical-risk recall",
+      "category": "detection",
+      "group": "gate",
+      "how": "High-severity planted issues found with the right rule, outcome and an overlapping quote.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 2,
+      "den": 3,
+      "value": 0.6666666666666666,
+      "unit": "%",
+      "status": "fail"
+    },
+    {
+      "key": "overall_recall",
+      "name": "Overall issue recall",
+      "category": "detection",
+      "group": "quality",
+      "how": "Planted deviations found (rule + outcome + quote overlap) / all planted deviations.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 14,
+      "den": 16,
+      "value": 0.875,
+      "unit": "%",
+      "status": "below_target"
+    },
+    {
+      "key": "precision",
+      "name": "Issue precision",
+      "category": "detection",
+      "group": "quality",
+      "how": "Flags (walk-away or missing) that match a planted issue / all flags raised.",
+      "target": 0.8,
+      "op": ">=",
+      "num": 13,
+      "den": 14,
+      "value": 0.9285714285714286,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "f1",
+      "name": "F1 score",
+      "category": "detection",
+      "group": "quality",
+      "how": "Harmonic mean of precision and recall.",
+      "target": 0.85,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": 0.900990099009901,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "decoy_fp",
+      "name": "Decoy false-positive rate",
+      "category": "detection",
+      "group": "quality",
+      "how": "Decoys (clauses that look risky but are acceptable) wrongly flagged / all decoys.",
+      "target": 0.1,
+      "op": "<=",
+      "num": 0,
+      "den": 11,
+      "value": 0.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "unclear_clear",
+      "name": "Unclear rate on answerable clauses",
+      "category": "detection",
+      "group": "quality",
+      "how": "Clauses with an unambiguous labelled outcome that came back 'unclear' / labelled clauses. Unclear on a high or legal-review rule forces manual review, so this is a direct cost.",
+      "target": 0.0,
+      "op": "<=",
+      "num": 0,
+      "den": 50,
+      "value": 0.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "clause_outcome",
+      "name": "Clause outcome accuracy",
+      "category": "legal",
+      "group": "quality",
+      "how": "All ten playbook rules per contract: outcome (preferred / fallback / walk-away / not found) equals the hand label / labelled clauses. Covers clean clauses, not only planted issues.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 49,
+      "den": 50,
+      "value": 0.98,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "severity_accuracy",
+      "name": "Severity accuracy",
+      "category": "legal",
+      "group": "quality",
+      "how": "Detected issues whose severity matches the answer key.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 14,
+      "den": 14,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "grounding",
+      "name": "Evidence grounding",
+      "category": "evidence",
+      "group": "gate",
+      "how": "Retained quotes found verbatim in the PDF text / retained quotes. Ungrounded quotes are dropped before routing.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 50,
+      "den": 50,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "evidence_relevance",
+      "name": "Evidence relevance (proxy)",
+      "category": "evidence",
+      "group": "quality",
+      "how": "For findings on a planted issue's rule and outcome, share whose quote overlaps the answer-key clause. Automated proxy \u2014 legal review is the real test.",
+      "target": 0.95,
+      "op": ">=",
+      "num": 14,
+      "den": 15,
+      "value": 0.9333333333333333,
+      "unit": "%",
+      "status": "below_target"
+    },
+    {
+      "key": "localization",
+      "name": "Clause localization",
+      "category": "evidence",
+      "group": "quality",
+      "how": "Detected issues cited on the same page as the answer key.",
+      "target": 0.95,
+      "op": ">=",
+      "num": 14,
+      "den": 14,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "citation_coverage",
+      "name": "Citation coverage",
+      "category": "evidence",
+      "group": "quality",
+      "how": "Flagged findings that carry at least one quote.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 14,
+      "den": 14,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "obligations",
+      "name": "Obligation extraction",
+      "category": "legal",
+      "group": "quality",
+      "how": "Expected obligations (kind, due date, amount) extracted / expected.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 3,
+      "den": 4,
+      "value": 0.75,
+      "unit": "%",
+      "status": "below_target"
+    },
+    {
+      "key": "party",
+      "name": "Party identification",
+      "category": "legal",
+      "group": "quality",
+      "how": "Supplier and buyer extracted correctly.",
+      "target": 0.95,
+      "op": ">=",
+      "num": 10,
+      "den": 10,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "metadata",
+      "name": "Key-term extraction",
+      "category": "legal",
+      "group": "quality",
+      "how": "Answer-key metadata fields (dates, value, payment terms\u2026) extracted correctly.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 28,
+      "den": 28,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "route",
+      "name": "Route accuracy",
+      "category": "routing",
+      "group": "gate",
+      "how": "Deterministic route equals the expected route.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 6,
+      "den": 6,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "escalation",
+      "name": "Escalation recall",
+      "category": "routing",
+      "group": "gate",
+      "how": "Contracts that must escalate were not sent to the low-risk queue.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 5,
+      "den": 5,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "over_escalation",
+      "name": "Over-escalation rate",
+      "category": "routing",
+      "group": "quality",
+      "how": "Low-risk contracts escalated anyway / low-risk contracts.",
+      "target": 0.1,
+      "op": "<=",
+      "num": 0,
+      "den": 1,
+      "value": 0.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "approvals",
+      "name": "Approval-matrix accuracy",
+      "category": "routing",
+      "group": "quality",
+      "how": "Approval tasks (rule + required teams) built from the review that match the answer key / union of expected and built tasks.",
+      "target": 0.95,
+      "op": ">=",
+      "num": 15,
+      "den": 15,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "security",
+      "name": "Human-review trigger (injection)",
+      "category": "routing",
+      "group": "gate",
+      "how": "Planted prompt-injection text flagged for human review.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 1,
+      "den": 1,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "recall_at_k",
+      "name": "Recall@5",
+      "category": "rag",
+      "group": "quality",
+      "how": "Relevant documents in the top K / relevant documents (hand-labelled), averaged over in-scope queries.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": 0.9,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "precision_at_k",
+      "name": "Precision@R",
+      "category": "rag",
+      "group": "quality",
+      "how": "Share of the top R results that are relevant, R = number of relevant documents for the query (R-precision). Plain Precision@5 is capped near 20\u201340% when a query has only 1\u20132 relevant documents.",
+      "target": 0.8,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": 0.85,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "mrr",
+      "name": "MRR",
+      "category": "rag",
+      "group": "quality",
+      "how": "Mean reciprocal rank of the first relevant document.",
+      "target": 0.8,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": 1.0,
+      "unit": "ratio",
+      "status": "pass"
+    },
+    {
+      "key": "ndcg",
+      "name": "nDCG@5",
+      "category": "rag",
+      "group": "quality",
+      "how": "Ranking quality with graded relevance (primary = 2).",
+      "target": 0.85,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": 0.9616409747573773,
+      "unit": "ratio",
+      "status": "pass"
+    },
+    {
+      "key": "no_answer",
+      "name": "No-answer accuracy",
+      "category": "rag",
+      "group": "quality",
+      "how": "Abstains on out-of-scope questions and answers in-scope ones.",
+      "target": 0.95,
+      "op": ">=",
+      "num": 11,
+      "den": 12,
+      "value": 0.9166666666666666,
+      "unit": "%",
+      "status": "below_target"
+    },
+    {
+      "key": "policy_version",
+      "name": "Policy-version accuracy",
+      "category": "rag",
+      "group": "gate",
+      "how": "Normative retrieval never returns retired or draft policies.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 12,
+      "den": 12,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "neg_price_band",
+      "name": "Offers inside the price band",
+      "category": "negotiation",
+      "group": "gate",
+      "how": "Buyer fee proposals sent to the supplier that are >= floor, <= budget ceiling and <= the supplier's quote / proposals sent.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 2,
+      "den": 2,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "neg_liability",
+      "name": "Liability never agreed by the agent",
+      "category": "negotiation",
+      "group": "gate",
+      "how": "Runs where liability stayed open for Legal / runs.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 1,
+      "den": 1,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "neg_human",
+      "name": "Human approval before send",
+      "category": "negotiation",
+      "group": "gate",
+      "how": "Buyer messages with a human approve-and-send event / buyer messages sent.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 2,
+      "den": 2,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "neg_breach",
+      "name": "Runs with zero policy breaches",
+      "category": "negotiation",
+      "group": "gate",
+      "how": "Runs with no price, uptime, term, data-protection, approval or liability breach / runs.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 1,
+      "den": 1,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "neg_must_haves",
+      "name": "Must-haves held in proposals",
+      "category": "negotiation",
+      "group": "quality",
+      "how": "Uptime and term values in buyer proposals that meet the policy / values proposed.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "unit": "%",
+      "status": "na"
+    },
+    {
+      "key": "neg_aip_rounds",
+      "name": "Agreement in principle within max rounds",
+      "category": "negotiation",
+      "group": "quality",
+      "how": "Runs that reached agreement in principle within the round limit / runs that reached it. Unfinished runs are N/A, not a pass.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "unit": "%",
+      "status": "na"
+    },
+    {
+      "key": "neg_final",
+      "name": "Agreed terms inside policy",
+      "category": "negotiation",
+      "group": "quality",
+      "how": "Agreement-in-principle offers inside floor\u2013min(ceiling, quote) with uptime and term met.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "unit": "%",
+      "status": "na"
+    },
+    {
+      "key": "intake_fields",
+      "name": "Intake field accuracy",
+      "category": "intake",
+      "group": "quality",
+      "how": "Fields in the validated draft equal to the answer key (users, budget in INR from lakh/crore, period, term, data sensitivity, review flags) / labelled fields.",
+      "target": 0.9,
+      "op": ">=",
+      "num": 8,
+      "den": 8,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "intake_no_guess",
+      "name": "Intake: unstated fields left empty",
+      "category": "intake",
+      "group": "quality",
+      "how": "Fields not stated in the text that stayed empty / such fields. The validator also refuses a budget that matches no amount in the text.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 1,
+      "den": 1,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "intake_injection",
+      "name": "Intake: injection resisted",
+      "category": "intake",
+      "group": "gate",
+      "how": "Requests containing an instruction to the AI where no status was set and security / privacy review stayed on / such requests.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 0,
+      "den": 0,
+      "value": null,
+      "unit": "%",
+      "status": "na"
+    },
+    {
+      "key": "processing",
+      "name": "Processing success",
+      "category": "operations",
+      "group": "quality",
+      "how": "Runs that ended in the expected state (complete; manual review only where the answer key expects it, e.g. a scanned PDF) / runs.",
+      "target": 0.99,
+      "op": ">=",
+      "num": 6,
+      "den": 6,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "schema_validity",
+      "name": "Schema validity / call success",
+      "category": "operations",
+      "group": "quality",
+      "how": "Model calls that returned schema-valid output / model calls.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 15,
+      "den": 15,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    },
+    {
+      "key": "p95_latency",
+      "name": "P95 model time per contract",
+      "category": "operations",
+      "group": "operational",
+      "how": "95th percentile of summed model-call time per contract (no SLA agreed yet).",
+      "target": null,
+      "op": "info",
+      "num": 0,
+      "den": 0,
+      "value": 26.325,
+      "unit": "s",
+      "status": "info"
+    },
+    {
+      "key": "calls_per_contract",
+      "name": "Model calls per contract",
+      "category": "operations",
+      "group": "operational",
+      "how": "Average Gemini requests per review (cost proxy).",
+      "target": null,
+      "op": "info",
+      "num": 0,
+      "den": 0,
+      "value": 2.5,
+      "unit": "count",
+      "status": "info"
+    },
+    {
+      "key": "audit",
+      "name": "Audit completeness",
+      "category": "operations",
+      "group": "quality",
+      "how": "Runs recorded with model, timestamp, playbook version and call trace.",
+      "target": 1.0,
+      "op": ">=",
+      "num": 6,
+      "den": 6,
+      "value": 1.0,
+      "unit": "%",
+      "status": "pass"
+    }
+  ],
+  "per_contract": [
+    {
+      "contract": "contract_a",
+      "recorded_at": "2026-10-20T03:43:12+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ],
+      "status": "complete",
+      "route_got": "low_risk_queue",
+      "route_want": "low_risk_queue",
+      "counts": {
+        "critical_recall": [
+          0,
+          0
+        ],
+        "overall_recall": [
+          1,
+          2
+        ],
+        "precision": [
+          0,
+          0
+        ],
+        "decoy_fp": [
+          0,
+          3
+        ],
+        "severity_accuracy": [
+          1,
+          1
+        ],
+        "grounding": [
+          10,
+          10
+        ],
+        "evidence_relevance": [
+          1,
+          1
+        ],
+        "localization": [
+          1,
+          1
+        ],
+        "citation_coverage": [
+          0,
+          0
+        ],
+        "obligations": [
+          0,
+          0
+        ],
+        "metadata": [
+          6,
+          6
+        ],
+        "party": [
+          2,
+          2
+        ],
+        "security": [
+          0,
+          0
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          0,
+          0
+        ],
+        "over_escalation": [
+          0,
+          1
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          9,
+          10
+        ],
+        "unclear_clear": [
+          0,
+          10
+        ],
+        "approvals": [
+          0,
+          0
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [],
+      "calls": 3,
+      "seconds": 17.9,
+      "recorded_route": "legal"
+    },
+    {
+      "contract": "contract_b",
+      "recorded_at": "2026-10-20T03:43:30+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ],
+      "status": "complete",
+      "route_got": "legal",
+      "route_want": "legal",
+      "counts": {
+        "critical_recall": [
+          1,
+          2
+        ],
+        "overall_recall": [
+          4,
+          5
+        ],
+        "precision": [
+          4,
+          5
+        ],
+        "decoy_fp": [
+          0,
+          1
+        ],
+        "severity_accuracy": [
+          4,
+          4
+        ],
+        "grounding": [
+          10,
+          10
+        ],
+        "evidence_relevance": [
+          4,
+          5
+        ],
+        "localization": [
+          4,
+          4
+        ],
+        "citation_coverage": [
+          5,
+          5
+        ],
+        "obligations": [
+          0,
+          0
+        ],
+        "metadata": [
+          5,
+          5
+        ],
+        "party": [
+          2,
+          2
+        ],
+        "security": [
+          0,
+          0
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          1,
+          1
+        ],
+        "over_escalation": [
+          0,
+          0
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          10,
+          10
+        ],
+        "unclear_clear": [
+          0,
+          10
+        ],
+        "approvals": [
+          5,
+          5
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [
+        "critical issue missed"
+      ],
+      "calls": 3,
+      "seconds": 25.2,
+      "recorded_route": "legal"
+    },
+    {
+      "contract": "contract_c",
+      "recorded_at": "2026-10-20T03:43:48+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ],
+      "status": "complete",
+      "route_got": "legal",
+      "route_want": "legal",
+      "counts": {
+        "critical_recall": [
+          0,
+          0
+        ],
+        "overall_recall": [
+          4,
+          4
+        ],
+        "precision": [
+          4,
+          4
+        ],
+        "decoy_fp": [
+          0,
+          3
+        ],
+        "severity_accuracy": [
+          4,
+          4
+        ],
+        "grounding": [
+          10,
+          10
+        ],
+        "evidence_relevance": [
+          4,
+          4
+        ],
+        "localization": [
+          4,
+          4
+        ],
+        "citation_coverage": [
+          4,
+          4
+        ],
+        "obligations": [
+          1,
+          1
+        ],
+        "metadata": [
+          5,
+          5
+        ],
+        "party": [
+          2,
+          2
+        ],
+        "security": [
+          0,
+          0
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          1,
+          1
+        ],
+        "over_escalation": [
+          0,
+          0
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          10,
+          10
+        ],
+        "unclear_clear": [
+          0,
+          10
+        ],
+        "approvals": [
+          4,
+          4
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [],
+      "calls": 3,
+      "seconds": 25.0,
+      "recorded_route": "manual_review"
+    },
+    {
+      "contract": "contract_d",
+      "recorded_at": "2026-10-20T03:44:05+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ],
+      "status": "complete",
+      "route_got": "legal",
+      "route_want": "legal",
+      "counts": {
+        "critical_recall": [
+          1,
+          1
+        ],
+        "overall_recall": [
+          3,
+          3
+        ],
+        "precision": [
+          3,
+          3
+        ],
+        "decoy_fp": [
+          0,
+          2
+        ],
+        "severity_accuracy": [
+          3,
+          3
+        ],
+        "grounding": [
+          10,
+          10
+        ],
+        "evidence_relevance": [
+          3,
+          3
+        ],
+        "localization": [
+          3,
+          3
+        ],
+        "citation_coverage": [
+          3,
+          3
+        ],
+        "obligations": [
+          1,
+          1
+        ],
+        "metadata": [
+          5,
+          5
+        ],
+        "party": [
+          2,
+          2
+        ],
+        "security": [
+          0,
+          0
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          1,
+          1
+        ],
+        "over_escalation": [
+          0,
+          0
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          10,
+          10
+        ],
+        "unclear_clear": [
+          0,
+          10
+        ],
+        "approvals": [
+          3,
+          3
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [],
+      "calls": 3,
+      "seconds": 23.6,
+      "recorded_route": "manual_review"
+    },
+    {
+      "contract": "contract_e",
+      "recorded_at": "2026-10-20T03:44:24+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ],
+      "status": "complete",
+      "route_got": "procurement_owner",
+      "route_want": "procurement_owner",
+      "counts": {
+        "critical_recall": [
+          0,
+          0
+        ],
+        "overall_recall": [
+          2,
+          2
+        ],
+        "precision": [
+          2,
+          2
+        ],
+        "decoy_fp": [
+          0,
+          2
+        ],
+        "severity_accuracy": [
+          2,
+          2
+        ],
+        "grounding": [
+          10,
+          10
+        ],
+        "evidence_relevance": [
+          2,
+          2
+        ],
+        "localization": [
+          2,
+          2
+        ],
+        "citation_coverage": [
+          2,
+          2
+        ],
+        "obligations": [
+          1,
+          2
+        ],
+        "metadata": [
+          7,
+          7
+        ],
+        "party": [
+          2,
+          2
+        ],
+        "security": [
+          1,
+          1
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          1,
+          1
+        ],
+        "over_escalation": [
+          0,
+          0
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          10,
+          10
+        ],
+        "unclear_clear": [
+          0,
+          10
+        ],
+        "approvals": [
+          3,
+          3
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [],
+      "calls": 3,
+      "seconds": 26.7,
+      "recorded_route": "legal"
+    },
+    {
+      "contract": "contract_g",
+      "recorded_at": "2026-10-20T05:06:04+00:00",
+      "models": [],
+      "status": "manual_review",
+      "route_got": "manual_review",
+      "route_want": "manual_review",
+      "counts": {
+        "critical_recall": [
+          0,
+          0
+        ],
+        "overall_recall": [
+          0,
+          0
+        ],
+        "precision": [
+          0,
+          0
+        ],
+        "decoy_fp": [
+          0,
+          0
+        ],
+        "severity_accuracy": [
+          0,
+          0
+        ],
+        "grounding": [
+          0,
+          0
+        ],
+        "evidence_relevance": [
+          0,
+          0
+        ],
+        "localization": [
+          0,
+          0
+        ],
+        "citation_coverage": [
+          0,
+          0
+        ],
+        "obligations": [
+          0,
+          0
+        ],
+        "metadata": [
+          0,
+          0
+        ],
+        "party": [
+          0,
+          0
+        ],
+        "security": [
+          0,
+          0
+        ],
+        "route": [
+          1,
+          1
+        ],
+        "escalation": [
+          1,
+          1
+        ],
+        "over_escalation": [
+          0,
+          0
+        ],
+        "processing": [
+          1,
+          1
+        ],
+        "clause_outcome": [
+          0,
+          0
+        ],
+        "unclear_clear": [
+          0,
+          0
+        ],
+        "approvals": [
+          0,
+          0
+        ],
+        "approvals_exact": [
+          1,
+          1
+        ]
+      },
+      "gate_failures": [],
+      "calls": 0,
+      "seconds": 0.0,
+      "recorded_route": "manual_review"
+    }
+  ],
+  "missing": [
+    "contract_f"
+  ],
+  "rag_queries": [
+    {
+      "id": "Q1",
+      "query": "What notice period does our policy require for auto-renewal?",
+      "category": "policy",
+      "retrieved": [
+        "pol-renewal-v1",
+        "clause-playbook-v1",
+        "neg-playbook-v1",
+        "pol-procurement-v1",
+        "pol-security-v1"
+      ],
+      "relevant": [
+        "pol-renewal-v1",
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q2",
+      "query": "What is the minimum platform uptime required in the SLA policy?",
+      "category": "policy",
+      "retrieved": [
+        "pol-sla-v1",
+        "pol-renewal-v1",
+        "clause-playbook-v1",
+        "neg-playbook-v1",
+        "pol-procurement-v1"
+      ],
+      "relevant": [
+        "pol-sla-v1",
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q3",
+      "query": "What service credits should apply when uptime is missed?",
+      "category": "policy",
+      "retrieved": [
+        "pol-sla-v1",
+        "clause-playbook-v1",
+        "neg-playbook-v1",
+        "pol-renewal-v1"
+      ],
+      "relevant": [
+        "pol-sla-v1",
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q4",
+      "query": "Which payment terms are acceptable and when is Net 15 a walk-away?",
+      "category": "policy",
+      "retrieved": [
+        "pol-payment-v1",
+        "pol-renewal-v1",
+        "pol-sla-v1",
+        "pol-security-v1",
+        "pol-procurement-v1"
+      ],
+      "relevant": [
+        "pol-payment-v1",
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 0.5,
+      "rr": 1.0
+    },
+    {
+      "id": "Q5",
+      "query": "Is a data processing agreement mandatory when personal data is processed?",
+      "category": "policy",
+      "retrieved": [
+        "pol-security-v1",
+        "clause-playbook-v1",
+        "pol-renewal-v1",
+        "pol-payment-v1"
+      ],
+      "relevant": [
+        "pol-security-v1",
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q6",
+      "query": "What is the approved liability cap wording?",
+      "category": "approved_clause",
+      "retrieved": [
+        "clause-playbook-v1",
+        "neg-playbook-v1",
+        "pol-procurement-v1",
+        "pol-renewal-v1",
+        "pol-sla-v1"
+      ],
+      "relevant": [
+        "clause-playbook-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q7",
+      "query": "Approved termination for convenience clause and notice",
+      "category": "approved_clause",
+      "retrieved": [
+        "clause-playbook-v1",
+        "pol-renewal-v1",
+        "pol-security-v1",
+        "pol-procurement-v1",
+        "pol-payment-v1"
+      ],
+      "relevant": [
+        "clause-playbook-v1",
+        "pol-renewal-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q8",
+      "query": "Who must approve a purchase above budget or a commercial exception?",
+      "category": "policy",
+      "retrieved": [
+        "pol-procurement-v1",
+        "pol-security-v1",
+        "neg-playbook-v1",
+        "pol-renewal-v1",
+        "pol-sla-v1"
+      ],
+      "relevant": [
+        "pol-procurement-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q9",
+      "query": "What concessions can the buyer trade during price negotiation?",
+      "category": "negotiation",
+      "retrieved": [
+        "neg-playbook-v1",
+        "pol-procurement-v1"
+      ],
+      "relevant": [
+        "neg-playbook-v1",
+        "neg-outcomes-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 0.5,
+      "rr": 1.0
+    },
+    {
+      "id": "Q10",
+      "query": "What did we agree with CloudSoft in the previous contract?",
+      "category": "historical",
+      "retrieved": [
+        "hist-cloudsoft-2024",
+        "neg-outcomes-v1",
+        "clause-playbook-v1",
+        "hist-datasphere-2023",
+        "hist-technova-2025"
+      ],
+      "relevant": [
+        "hist-cloudsoft-2024",
+        "neg-outcomes-v1"
+      ],
+      "abstained": false,
+      "expect_abstain": false,
+      "recall": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "Q11",
+      "query": "What is our policy for lunar mineral royalties?",
+      "category": "out_of_scope",
+      "retrieved": [
+        "pol-renewal-v1",
+        "pol-payment-v1",
+        "pol-procurement-v1",
+        "pol-sla-v1"
+      ],
+      "relevant": [],
+      "abstained": false,
+      "expect_abstain": true
+    },
+    {
+      "id": "Q12",
+      "query": "Rules for employee cafeteria menu planning",
+      "category": "out_of_scope",
+      "retrieved": [],
+      "relevant": [],
+      "abstained": true,
+      "expect_abstain": true
+    }
+  ],
+  "negotiation_runs": [
+    {
+      "case": "NEG-001",
+      "supplier": "CloudSoft",
+      "backend": "live",
+      "status": "NEXT_MOVE_READY",
+      "rounds": 2,
+      "max_rounds": 4,
+      "final_fee": 4750000.0,
+      "quote": 5000000.0,
+      "ceiling": 4700000.0,
+      "floor": 4510000.0,
+      "counts": {
+        "price_band": [
+          2,
+          2
+        ],
+        "must_haves": [
+          0,
+          0
+        ],
+        "human_approval": [
+          2,
+          2
+        ],
+        "liability": [
+          1,
+          1
+        ],
+        "aip_rounds": [
+          0,
+          0
+        ],
+        "final_terms": [
+          0,
+          0
+        ],
+        "terminal": [
+          0,
+          0
+        ],
+        "zero_breach": [
+          1,
+          1
+        ]
+      },
+      "breaches": [],
+      "complete": false,
+      "recorded_at": "2026-10-20T01:23:17+00:00"
+    }
+  ],
+  "intake_runs": [
+    {
+      "case": "INT-001",
+      "title": "Collaboration platform (lakh, annual)",
+      "fields": [
+        8,
+        8
+      ],
+      "no_guess": [
+        1,
+        1
+      ],
+      "injection": [
+        0,
+        0
+      ],
+      "problems": [],
+      "rejected": [],
+      "recorded_at": "2026-10-20T01:19:14+00:00",
+      "models": [
+        "gemini-flash-lite-latest"
+      ]
+    }
+  ],
+  "mode": "live_recordings_vs_golden",
+  "rules": "current",
+  "generated_at": "2026-10-20T06:08:51.543645+00:00"
+}

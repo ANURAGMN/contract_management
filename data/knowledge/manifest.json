@@ -1,0 +1,159 @@
+{
+  "corpus_id": "demo-knowledge-v1",
+  "label": "Synthetic demo data — not real company policy or legal advice",
+  "documents": [
+    {
+      "document_id": "pol-procurement-v1",
+      "title": "Procurement Policy (Demo)",
+      "document_type": "procurement_policy",
+      "owner": "Procurement",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/procurement_policy.md"
+    },
+    {
+      "document_id": "pol-security-v1",
+      "title": "Security & Privacy Standard (Demo)",
+      "document_type": "security_privacy_standard",
+      "owner": "Security",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/security_privacy_standard.md"
+    },
+    {
+      "document_id": "pol-sla-v1",
+      "title": "SLA Policy (Demo)",
+      "document_type": "sla_policy",
+      "owner": "Operations",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/sla_policy.md"
+    },
+    {
+      "document_id": "pol-sla-retired",
+      "title": "SLA Policy (Retired)",
+      "document_type": "sla_policy",
+      "owner": "Operations",
+      "version": "0.9",
+      "effective_from": "2024-01-01",
+      "effective_to": "2025-12-31",
+      "status": "retired",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/sla_policy_retired.md"
+    },
+    {
+      "document_id": "pol-payment-v1",
+      "title": "Payment Terms Policy (Demo)",
+      "document_type": "payment_terms_policy",
+      "owner": "Finance",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/payment_terms_policy.md"
+    },
+    {
+      "document_id": "pol-renewal-v1",
+      "title": "Renewal & Exit Policy (Demo)",
+      "document_type": "renewal_and_exit_policy",
+      "owner": "Procurement",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/renewal_and_exit_policy.md"
+    },
+    {
+      "document_id": "pol-renewal-draft",
+      "title": "Renewal Policy Draft (not approved)",
+      "document_type": "renewal_and_exit_policy",
+      "owner": "Procurement",
+      "version": "2.0-draft",
+      "effective_from": "2027-01-01",
+      "status": "draft",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/renewal_policy_draft.md"
+    },
+    {
+      "document_id": "clause-playbook-v1",
+      "title": "Legal Clause Playbook (Demo)",
+      "document_type": "approved_clauses",
+      "owner": "Legal",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/legal_clause_playbook.md"
+    },
+    {
+      "document_id": "neg-playbook-v1",
+      "title": "Negotiation Playbook (Demo)",
+      "document_type": "negotiation_playbook",
+      "owner": "Procurement",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "jurisdiction": "IN",
+      "confidentiality": "internal",
+      "source_path": "docs/negotiation_playbook.md"
+    },
+    {
+      "document_id": "neg-outcomes-v1",
+      "title": "Synthetic Negotiation Outcomes",
+      "document_type": "negotiation_outcomes",
+      "owner": "Procurement",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "status": "approved",
+      "confidentiality": "internal",
+      "source_path": "docs/negotiation_outcomes.csv"
+    },
+    {
+      "document_id": "hist-cloudsoft-2024",
+      "title": "Historical — CloudSoft MSA 2024 (precedent)",
+      "document_type": "historical_contract",
+      "owner": "Archive",
+      "version": "hist-1",
+      "effective_from": "2024-03-01",
+      "status": "approved",
+      "confidentiality": "internal",
+      "source_path": "docs/historical_cloudsoft_2024.md"
+    },
+    {
+      "document_id": "hist-technova-2025",
+      "title": "Historical — TechnoNova SOW 2025 (precedent)",
+      "document_type": "historical_contract",
+      "owner": "Archive",
+      "version": "hist-1",
+      "effective_from": "2025-06-01",
+      "status": "approved",
+      "confidentiality": "internal",
+      "source_path": "docs/historical_technova_2025.md"
+    },
+    {
+      "document_id": "hist-datasphere-2023",
+      "title": "Historical — DataSphere MSA 2023 (precedent)",
+      "document_type": "historical_contract",
+      "owner": "Archive",
+      "version": "hist-1",
+      "effective_from": "2023-09-01",
+      "status": "approved",
+      "confidentiality": "internal",
+      "source_path": "docs/historical_datasphere_2023.md"
+    }
+  ]
+}

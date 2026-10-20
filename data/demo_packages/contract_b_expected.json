@@ -1,0 +1,419 @@
+{
+  "run_id": "sample-contract-b",
+  "status": "complete",
+  "metadata": {
+    "supplier": {
+      "value": "Vector Logistics Private Limited",
+      "evidence": {
+        "quote": "Vector Logistics Private Limited",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "buyer": {
+      "value": "Acme Retail India Private Limited",
+      "evidence": {
+        "quote": "Acme Retail India Private Limited",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "contract_value": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "effective_date": {
+      "value": "2026-02-01",
+      "evidence": {
+        "quote": "1 February 2026",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "expiry_date": {
+      "value": "2027-01-31",
+      "evidence": {
+        "quote": "31 January 2027",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "auto_renewal": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "renewal_term_months": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "notice_period_days": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "renewal_notice_basis": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "payment_terms_days": {
+      "value": "45",
+      "evidence": {
+        "quote": "forty-five (45) days",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "liability_cap": {
+      "value": "cap with Clause 12 carve-out",
+      "evidence": {
+        "quote": "The foregoing limitation shall not apply to the Supplier's obligations except as set out in Clause 12 (Indemnity)",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "governing_law": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "sla_target_pct": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "service_credit_rule": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "processes_personal_data": {
+      "value": "yes",
+      "evidence": null,
+      "uncertainty": "assumed from SOW scope"
+    }
+  },
+  "findings": [
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LIABILITY-002",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Supplier's obligations under this Clause 12 shall not be subject to any limitation of liability, and the cap set out in Clause 5 shall not apply to this Clause 12.",
+              "page": 4
+            }
+          ],
+          "extracted_value": "uncapped general indemnity",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "high",
+      "requires_legal": true,
+      "rule_trace": "LIABILITY-002: uncapped general indemnity -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LIABILITY-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The foregoing limitation shall not apply to the Supplier's obligations except as set out in Clause 12 (Indemnity)",
+              "page": 2
+            }
+          ],
+          "extracted_value": "cap carved out by Clause 12",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "high",
+      "requires_legal": true,
+      "rule_trace": "LIABILITY-001: cap carved out -> walk_away | escalated: indemnity (LIABILITY-002) sits outside the cap"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "TERMINATION-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "Neither party may terminate this Agreement for convenience.",
+              "page": 3
+            }
+          ],
+          "extracted_value": "no buyer convenience right",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "TERMINATION-001: no buyer convenience right -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "PRICE-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Supplier may increase the Charges at its sole discretion upon thirty (30) days' written notice",
+              "page": 2
+            }
+          ],
+          "extracted_value": "unilateral increase on 30 days' notice",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "PRICE-001: unilateral increase on 30 days' notice -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "PAYMENT-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Buyer shall pay undisputed invoices within forty-five (45) days of invoice date (Net 45).",
+              "page": 1
+            }
+          ],
+          "extracted_value": "Net 45",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "PAYMENT-001: Net 45 -> preferred"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "SLA-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "Service credits of 3% of the monthly fee apply for each percentage point below a 96% on-time target, capped at 20% of the monthly fee.",
+              "page": 2
+            }
+          ],
+          "extracted_value": "96% on-time delivery target (no uptime)",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "SLA-001: on-time delivery SLA, no platform uptime commitment -> walk_away"
+    }
+  ],
+  "dropped": [],
+  "route": {
+    "route": "legal",
+    "trace": [
+      "R2: LIABILITY-002: uncapped general indemnity -> walk_away",
+      "R2: LIABILITY-001: cap carved out -> walk_away"
+    ]
+  },
+  "redlines": [
+    {
+      "redline": {
+        "rule_id": "LIABILITY-002",
+        "original": {
+          "quote": "The Supplier's obligations under this Clause 12 shall not be subject to any limitation of liability, and the cap set out in Clause 5 shall not apply to this Clause 12.",
+          "page": 4
+        },
+        "proposed_text": "The Supplier's indemnification obligations under this Clause shall be subject to a separate aggregate cap not exceeding two (2) times the annual fees, save that indemnities for intellectual property infringement and data breach shall remain uncapped.",
+        "rationale": "Bring general indemnity inside a 2x fees cap; keep IP/data-breach carve-outs (playbook fallback)."
+      },
+      "passed": true,
+      "problems": []
+    },
+    {
+      "redline": {
+        "rule_id": "TERMINATION-001",
+        "original": {
+          "quote": "Neither party may terminate this Agreement for convenience.",
+          "page": 3
+        },
+        "proposed_text": "The Buyer may terminate this Agreement for convenience at any time on sixty (60) days' prior written notice to the Supplier.",
+        "rationale": "Restore buyer convenience termination at playbook fallback (60 days)."
+      },
+      "passed": true,
+      "problems": []
+    },
+    {
+      "redline": {
+        "rule_id": "PRICE-001",
+        "original": {
+          "quote": "The Supplier may increase the Charges at its sole discretion upon thirty (30) days' written notice",
+          "page": 2
+        },
+        "proposed_text": "Fees are fixed for the initial term. Any increase on renewal shall not exceed the lower of CPI or five percent (5%) per annum.",
+        "rationale": "Replace unilateral increases with CPI/5% renewal cap (playbook fallback)."
+      },
+      "passed": true,
+      "problems": []
+    }
+  ],
+  "obligations": [
+    {
+      "kind": "renewal_decision",
+      "due": null,
+      "owner": "procurement",
+      "source": {
+        "quote": "(term end date present; confirm notice basis)",
+        "page": 1
+      },
+      "urgent": false,
+      "uncertain": true,
+      "amount_inr": null,
+      "note": null
+    }
+  ],
+  "security": {
+    "pre": [],
+    "model": []
+  },
+  "stage_status": {
+    "intake": "ok",
+    "metadata": "sample",
+    "grounding": "ok",
+    "rules": "ok",
+    "route": "legal",
+    "redlines": "sample_fallback_drafts",
+    "source": "offline_sample"
+  },
+  "file_name": "contract_b.pdf",
+  "playbook_version": "demo-v1",
+  "credit_claim": null,
+  "quotation_comparison": {
+    "requisition_id": "PR-2026-1042",
+    "budget_inr": 4800000.0,
+    "required_uptime_percent": 99.9,
+    "comparison_horizon_months": 12,
+    "baseline": {
+      "label": "Prior year similar SaaS (illustrative)",
+      "currency": "INR",
+      "annual_recurring_fee": 4500000.0,
+      "year": 2025,
+      "notes": [
+        "Synthetic baseline for demo only."
+      ]
+    },
+    "rows": [
+      {
+        "supplier_name": "CloudSoft",
+        "source_filename": "cloudsoft.json",
+        "currency": "INR",
+        "annual_recurring_fee": 5000000.0,
+        "one_time_fee": 150000.0,
+        "normalized_annual_fee": 5000000.0,
+        "total_cost_over_horizon": 5150000.0,
+        "cost_per_user": 10000.0,
+        "budget_variance": 200000.0,
+        "budget_variance_pct": 4.17,
+        "vs_baseline_pct": 11.11,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price."
+        ],
+        "is_lowest_annual_fee": false
+      },
+      {
+        "supplier_name": "TechNova",
+        "source_filename": "technova.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4400000.0,
+        "one_time_fee": 100000.0,
+        "normalized_annual_fee": 4400000.0,
+        "total_cost_over_horizon": 4500000.0,
+        "cost_per_user": 8800.0,
+        "budget_variance": -400000.0,
+        "budget_variance_pct": -8.33,
+        "vs_baseline_pct": -2.22,
+        "uptime_percent": 99.5,
+        "sla_compliant": false,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price.",
+          "Uptime 99.5% is below required minimum 99.9%."
+        ],
+        "is_lowest_annual_fee": true
+      },
+      {
+        "supplier_name": "DataSphere",
+        "source_filename": "datasphere.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4700000.0,
+        "one_time_fee": 200000.0,
+        "normalized_annual_fee": 4700000.0,
+        "total_cost_over_horizon": 4900000.0,
+        "cost_per_user": 9400.0,
+        "budget_variance": -100000.0,
+        "budget_variance_pct": -2.08,
+        "vs_baseline_pct": 4.44,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 24,
+        "term_mismatch": true,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Term is 24 months vs comparison horizon 12 months."
+        ],
+        "is_lowest_annual_fee": false
+      }
+    ],
+    "warnings": [],
+    "notes": [
+      "Amounts are absolute currency units (INR), not lakh display labels.",
+      "Lowest annual fee is highlighted but is not an automatic recommendation.",
+      "Total cost uses a 12-month horizon when term and fees are known.",
+      "Historical baseline: Prior year similar SaaS (illustrative) (INR 4500000.0/year)."
+    ]
+  },
+  "is_sample": true,
+  "sample_label": "Sample B — liability issues (Legal route)",
+  "request_id": null
+}

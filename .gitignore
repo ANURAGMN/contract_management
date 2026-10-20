@@ -1,0 +1,20 @@
+# Secrets and environments
+.env
+contract_review/.env
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Runtime caches (cached packages + decisions log)
+runs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit secrets (keys go in the Cloud Secrets UI, never the repo)
+.streamlit/secrets.toml

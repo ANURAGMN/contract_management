@@ -1,0 +1,16 @@
+{
+  "contract": "contract_g.pdf",
+  "supplier_id": "FIELDSERVE",
+  "playbook_version": "demo-v1",
+  "expected_route": "manual_review",
+  "expected_status": "manual_review",
+  "expected_model_calls": 0,
+  "robustness": {
+    "G": "scanned image-only PDF \u2014 no text layer; must stop before the model and go to manual review"
+  },
+  "metadata": {},
+  "issues": [],
+  "decoys": [],
+  "expected_outcomes": {},
+  "expected_approvals": []
+}

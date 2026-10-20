@@ -1,0 +1,216 @@
+{
+  "fixture_id": "cloudsoft_replay_v1",
+  "scenario_id": "cloudsoft_pr2026",
+  "description": "Deterministic CloudSoft negotiation ending in non-binding agreement in principle at INR 48 lakh.",
+  "expected_final_status": "AGREEMENT_IN_PRINCIPLE",
+  "steps": [
+    {
+      "label": "Generate negotiation strategy",
+      "from_status": "NOT_STARTED",
+      "to_status": "STRATEGY_READY",
+      "actor": "buyer_agent",
+      "reason": "Prioritise budget fit, retain 99.9% uptime / 12-month term / DPA; liability to Legal if pushed.",
+      "strategy_summary": "Ask CloudSoft to meet the INR 48 lakh ceiling while keeping must-have SLA, term, and data-protection. Trade only payment terms if needed. Escalate liability to Legal — do not auto-accept.",
+      "open_issues": ["annual_fee_inr", "uptime_percent", "term_months", "data_protection", "liability", "service_credits"]
+    },
+    {
+      "label": "Draft opening buyer email",
+      "from_status": "STRATEGY_READY",
+      "to_status": "DRAFT_READY",
+      "actor": "buyer_agent",
+      "reason": "Opening ask against CloudSoft INR 50 lakh quote",
+      "email": {
+        "message_id": "msg-b0",
+        "thread_id": "thread-cloudsoft-pr2026",
+        "direction": "buyer_to_supplier",
+        "subject": "CloudSoft proposal — commercial and contractual clarifications",
+        "body": "Dear CloudSoft team,\n\nThank you for the proposal of INR 50,00,000 per year for PR-2026-1042.\n\nCan you confirm whether you can meet our approved budget ceiling of INR 48,00,000 while retaining:\n- 12-month initial term\n- 99.9% uptime with measurable service credits\n- Data-protection / DPA commitments\n- Liability wording aligned to our playbook fallback\n\nThis message is a simulated negotiation draft for internal demo use only.\n\nRegards,\nABC Technologies Procurement",
+        "timestamp": "2026-10-19T10:00:00+00:00",
+        "round_number": 0,
+        "simulated": true,
+        "approval_status": "draft",
+        "linked_term_keys": ["annual_fee_inr", "uptime_percent", "term_months", "data_protection", "liability", "service_credits"]
+      },
+      "action": {
+        "action_type": "ask",
+        "rationale": "Open on budget and must-have terms without conceding liability.",
+        "proposed_term_changes": {
+          "annual_fee_inr": "4800000",
+          "uptime_percent": "99.9",
+          "term_months": "12"
+        },
+        "referenced_finding_ids": []
+      }
+    },
+    {
+      "label": "Hold draft for human approval",
+      "from_status": "DRAFT_READY",
+      "to_status": "AWAITING_USER_APPROVAL",
+      "actor": "system",
+      "reason": "Human must approve before simulator send"
+    },
+    {
+      "label": "Human approves opening email",
+      "from_status": "AWAITING_USER_APPROVAL",
+      "to_status": "EMAIL_SENT_TO_SIMULATOR",
+      "actor": "human",
+      "reason": "Approved outbound message to mock supplier (no real email)",
+      "approve_pending_draft": true
+    },
+    {
+      "label": "Mock supplier counters at 49L",
+      "from_status": "EMAIL_SENT_TO_SIMULATOR",
+      "to_status": "SUPPLIER_REPLY_RECEIVED",
+      "actor": "supplier_sim",
+      "reason": "Persona offers modest price movement; holds liability firm",
+      "email": {
+        "message_id": "msg-s1",
+        "thread_id": "thread-cloudsoft-pr2026",
+        "direction": "supplier_to_buyer",
+        "subject": "Re: CloudSoft proposal — commercial and contractual clarifications",
+        "body": "Dear ABC Technologies,\n\nWe can move to INR 49,00,000 per year and accept the 12-month term and 99.9% uptime with service credits. We can confirm a DPA.\n\nOn liability, we propose to keep our standard cap language and would need to discuss any broader buyer-favourable wording separately.\n\nBest regards,\nCloudSoft (simulated)",
+        "timestamp": "2026-10-19T10:05:00+00:00",
+        "round_number": 1,
+        "simulated": true,
+        "approval_status": "simulated_sent",
+        "linked_term_keys": ["annual_fee_inr", "term_months", "uptime_percent", "data_protection", "liability"]
+      },
+      "supplier_offer_update": {
+        "annual_fee_inr": 4900000,
+        "term_months": 12,
+        "uptime_percent": 99.9,
+        "notes": ["DPA acceptable", "Liability still supplier-standard"]
+      },
+      "concessions_supplier": ["price_50L_to_49L", "accept_12m_term", "accept_99.9_uptime", "confirm_dpa"]
+    },
+    {
+      "label": "Analyze supplier reply",
+      "from_status": "SUPPLIER_REPLY_RECEIVED",
+      "to_status": "RESPONSE_ANALYZED",
+      "actor": "buyer_agent",
+      "reason": "Price still above budget; SLA/term/DPA improved; liability unresolved → Legal if accepted",
+      "open_issues": ["annual_fee_inr", "liability"],
+      "agreed_terms": ["term_months", "uptime_percent", "data_protection", "service_credits"]
+    },
+    {
+      "label": "Plan counteroffer",
+      "from_status": "RESPONSE_ANALYZED",
+      "to_status": "NEXT_MOVE_READY",
+      "actor": "buyer_agent",
+      "reason": "Counter toward target 47.5L; keep liability for Legal — do not auto-accept",
+      "action": {
+        "action_type": "counteroffer",
+        "rationale": "Budget still exceeded at 49L. Counter at illustrative target 47.5L; escalate liability.",
+        "proposed_term_changes": {
+          "annual_fee_inr": "4750000"
+        },
+        "requires_escalation": false,
+        "referenced_finding_ids": []
+      }
+    },
+    {
+      "label": "Draft counter email",
+      "from_status": "NEXT_MOVE_READY",
+      "to_status": "DRAFT_READY",
+      "actor": "buyer_agent",
+      "reason": "Counter on price; park liability for Legal",
+      "email": {
+        "message_id": "msg-b1",
+        "thread_id": "thread-cloudsoft-pr2026",
+        "direction": "buyer_to_supplier",
+        "subject": "Re: CloudSoft proposal — counter on commercial terms",
+        "body": "Dear CloudSoft team,\n\nThank you for confirming the 12-month term, 99.9% uptime with credits, and DPA.\n\nOur approved ceiling remains INR 48,00,000. As a next step we can discuss INR 47,50,000 as an illustrative target for this demo, provided the must-have service terms remain.\n\nLiability wording will be reviewed separately by our Legal team and is not accepted in this message.\n\nRegards,\nABC Technologies Procurement",
+        "timestamp": "2026-10-19T10:10:00+00:00",
+        "round_number": 1,
+        "simulated": true,
+        "approval_status": "draft",
+        "linked_term_keys": ["annual_fee_inr", "liability"]
+      },
+      "action": {
+        "action_type": "counteroffer",
+        "rationale": "Move toward target price; do not concede liability.",
+        "proposed_term_changes": {
+          "annual_fee_inr": "4750000"
+        }
+      }
+    },
+    {
+      "label": "Hold counter for approval",
+      "from_status": "DRAFT_READY",
+      "to_status": "AWAITING_USER_APPROVAL",
+      "actor": "system",
+      "reason": "Human approval gate"
+    },
+    {
+      "label": "Human approves counter",
+      "from_status": "AWAITING_USER_APPROVAL",
+      "to_status": "EMAIL_SENT_TO_SIMULATOR",
+      "actor": "human",
+      "reason": "Approved counter to simulator",
+      "approve_pending_draft": true
+    },
+    {
+      "label": "Supplier accepts 48L ceiling",
+      "from_status": "EMAIL_SENT_TO_SIMULATOR",
+      "to_status": "SUPPLIER_REPLY_RECEIVED",
+      "actor": "supplier_sim",
+      "reason": "Meets budget ceiling; liability remains for Legal offline",
+      "email": {
+        "message_id": "msg-s2",
+        "thread_id": "thread-cloudsoft-pr2026",
+        "direction": "supplier_to_buyer",
+        "subject": "Re: CloudSoft proposal — counter on commercial terms",
+        "body": "Dear ABC Technologies,\n\nWe can accept INR 48,00,000 per year with the confirmed 12-month term, 99.9% uptime, service credits, and DPA.\n\nPlease have your Legal team send mark-ups on liability; we will not treat liability as agreed in this thread.\n\nCloudSoft (simulated)",
+        "timestamp": "2026-10-19T10:15:00+00:00",
+        "round_number": 2,
+        "simulated": true,
+        "approval_status": "simulated_sent",
+        "linked_term_keys": ["annual_fee_inr", "liability"]
+      },
+      "supplier_offer_update": {
+        "annual_fee_inr": 4800000,
+        "term_months": 12,
+        "uptime_percent": 99.9,
+        "notes": ["At budget ceiling", "Liability reserved for Legal"]
+      },
+      "concessions_supplier": ["price_50L_to_49L", "accept_12m_term", "accept_99.9_uptime", "confirm_dpa", "price_49L_to_48L"],
+      "buyer_offer_update": {
+        "annual_fee_inr": 4800000,
+        "term_months": 12,
+        "uptime_percent": 99.9,
+        "notes": ["Within budget ceiling"]
+      }
+    },
+    {
+      "label": "Analyze final commercial reply",
+      "from_status": "SUPPLIER_REPLY_RECEIVED",
+      "to_status": "RESPONSE_ANALYZED",
+      "actor": "buyer_agent",
+      "reason": "Commercial must-haves met at budget; liability still open → escalate Legal separately but commercial AIP possible",
+      "open_issues": ["liability"],
+      "agreed_terms": ["annual_fee_inr", "term_months", "uptime_percent", "data_protection", "service_credits"]
+    },
+    {
+      "label": "Next move: commercial agreement in principle",
+      "from_status": "RESPONSE_ANALYZED",
+      "to_status": "NEXT_MOVE_READY",
+      "actor": "buyer_agent",
+      "reason": "Recommend non-binding AIP on commercial terms; liability to Legal",
+      "action": {
+        "action_type": "accept",
+        "rationale": "Accept commercial package at INR 48 lakh; escalate liability to Legal.",
+        "proposed_term_changes": {
+          "annual_fee_inr": "4800000"
+        },
+        "requires_escalation": true
+      }
+    },
+    {
+      "label": "Close as agreement in principle",
+      "from_status": "NEXT_MOVE_READY",
+      "to_status": "AGREEMENT_IN_PRINCIPLE",
+      "actor": "system",
+      "reason": "Commercial terms within policy; liability flagged for Legal — AIP is non-binding"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "scenario_id": "cloudsoft_pr2026",
+  "description": "Golden expectations for the CloudSoft negotiation demo (scripted + policy resolver).",
+  "budget_ceiling_inr": 4800000,
+  "price_floor_inr": 4600000,
+  "min_uptime_percent": 99.9,
+  "max_term_months": 12,
+  "expected_scripted_terminal": "AGREEMENT_IN_PRINCIPLE",
+  "must_have_keys": [
+    "annual_fee_inr",
+    "uptime_percent",
+    "term_months",
+    "data_protection"
+  ],
+  "liability_never_auto_agreed": true,
+  "max_rounds": 4,
+  "case_id": "NEG-001",
+  "supplier": "CloudSoft",
+  "focus": "Price above budget: bring INR 50L down to the ceiling without breaking must-haves."
+}

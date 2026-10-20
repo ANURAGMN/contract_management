@@ -1,0 +1,13 @@
+{
+  "description": "Contract-vs-quotation checks (app/flow_links.contract_vs_quotes) against the PR-2026-1042 quotations. Deterministic — run by tests/unit/test_eval_cases.py.",
+  "cases": [
+    {"id": "COM-001", "title": "Supplier with no quotation on file", "supplier": "TalkBridge BPO Services Private Limited",
+     "contract_value": "6000000", "sla_target_pct": "95", "expect_severity": "high", "expect_text": "No quotation on file"},
+    {"id": "COM-002", "title": "Contract value above the quote", "supplier": "CloudSoft Solutions Pvt Ltd",
+     "contract_value": "5200000", "sla_target_pct": "99.9", "expect_severity": "high", "expect_text": "above the quoted annual fee"},
+    {"id": "COM-003", "title": "Contract SLA below the quoted SLA", "supplier": "CloudSoft Solutions Pvt Ltd",
+     "contract_value": "4800000", "sla_target_pct": "99.5", "expect_severity": "medium", "expect_text": "lower than"},
+    {"id": "COM-004", "title": "Contract consistent with the quote", "supplier": "DataSphere Analytics",
+     "contract_value": "4700000", "sla_target_pct": "99.9", "expect_severity": "ok", "expect_text": "consistent"}
+  ]
+}

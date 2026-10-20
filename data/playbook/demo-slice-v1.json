@@ -1,0 +1,38 @@
+{
+  "version": "demo-slice-v1",
+  "rules": [
+    {
+      "id": "PAYMENT-001",
+      "topic": "Payment terms",
+      "description": "Find the payment-terms clause. Extract the number of days the Buyer has to pay (e.g. 'Net 15', 'Net 30', '45 days from invoice').",
+      "preferred": "Net 45 or longer",
+      "fallback": "Net 30 (with Finance approval)",
+      "walk_away": "Shorter than Net 30",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "The Buyer shall pay all undisputed invoices within thirty (30) days of the date of a valid invoice."
+    },
+    {
+      "id": "SLA-001",
+      "topic": "Service levels",
+      "description": "Find the service-level clause. Extract the measurable SLA target and the service-credit rule.",
+      "preferred": "Measurable SLA with service credits",
+      "fallback": "Measurable SLA, credits negotiable",
+      "walk_away": "No measurable SLA for a service contract",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "The Supplier shall meet a measurable service level of at least 95% on-time performance per month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee."
+    },
+    {
+      "id": "DATA-001",
+      "topic": "Data protection",
+      "description": "Determine whether the contract involves processing of personal data and whether a Data Processing Agreement (DPA) or equivalent clause is present.",
+      "preferred": "DPA or equivalent clause present",
+      "fallback": "Supplier commits to sign a DPA before go-live",
+      "walk_away": "No DPA where personal data is processed",
+      "severity": "high",
+      "legal_review": true,
+      "fallback_text": "The parties shall enter into a Data Processing Agreement consistent with applicable data protection law before any processing of personal data commences."
+    }
+  ]
+}

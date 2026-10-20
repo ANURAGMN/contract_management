@@ -1,0 +1,19 @@
+{
+  "case_id": "NEG-002",
+  "scenario_id": "technova_pr-2026-1042",
+  "supplier": "TechNova",
+  "description": "Price already under budget but uptime 99.5% < 99.9%: hold uptime; never offer more than the supplier asked.",
+  "focus": "Price already under budget but uptime 99.5% < 99.9%: hold uptime; never offer more than the supplier asked.",
+  "limits_from": "request PR-2026-1042 budget and SLA + the supplier's quotation (app/flow_links.scenario_from_quote)",
+  "expected_scripted_terminal": "AGREEMENT_IN_PRINCIPLE",
+  "must_have_keys": [
+    "annual_fee_inr",
+    "uptime_percent",
+    "term_months",
+    "data_protection"
+  ],
+  "liability_never_auto_agreed": true,
+  "max_rounds": 4,
+  "never_offer_above_quote": true,
+  "quoted_uptime_percent": 99.5
+}

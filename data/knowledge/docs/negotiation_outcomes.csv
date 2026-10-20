@@ -1,0 +1,4 @@
+scenario_id,supplier,initial_offer_inr,final_offer_inr,term_months,uptime_pct,concession,outcome,caveat
+SYN-001,CloudSoft,5000000,4800000,12,99.9,extended renewal notice to 60d,agreed_in_principle,Synthetic demo — not a market benchmark
+SYN-002,TechnoNova,4600000,4600000,12,99.5,accepted lower uptime with BO approval,escalated,Synthetic demo — not a market benchmark
+SYN-003,DataSphere,4900000,4750000,24,99.9,multi-year discount,agreed_in_principle,Synthetic demo — not a market benchmark

@@ -1,0 +1,73 @@
+{
+  "contract": "contract_a.pdf",
+  "expected_route": "low_risk_queue",
+  "metadata": {
+    "supplier": "Brightline IT Services LLP",
+    "buyer": "Acme Retail India Private Limited",
+    "effective_date": "2026-01-01",
+    "expiry_date": "2027-12-31",
+    "payment_terms_days": "45",
+    "notice_period_days": "60"
+  },
+  "issues": [
+    {
+      "id": "A1",
+      "type": "deviation",
+      "rule_id": "LAW-001",
+      "severity": "low",
+      "status": "fallback",
+      "page": 3,
+      "span": "Any dispute shall be referred to and finally resolved by arbitration at a mutually agreed neutral venue",
+      "redline_must": []
+    },
+    {
+      "id": "A2",
+      "type": "deviation",
+      "rule_id": "SLA-001",
+      "severity": "medium",
+      "status": "fallback",
+      "page": 2,
+      "span": "The Supplier shall maintain a measurable service level of 99.0% platform availability per calendar month",
+      "redline_must": [
+        "align uptime to 99.9% preferred"
+      ]
+    }
+  ],
+  "decoys": [
+    {
+      "rule_id": "LIABILITY-001",
+      "page": 2,
+      "span": "The total aggregate liability of each party under this Agreement shall not exceed the total fees paid by the Buyer to the Supplier in the twelve (12) months preceding the event giving rise to the claim.",
+      "id": "A-D1",
+      "reason": "Acceptable: trailing-12-month fees cap is the preferred position."
+    },
+    {
+      "rule_id": "LIABILITY-001",
+      "page": 2,
+      "span": "Nothing in this Agreement limits or excludes liability for fraud, fraudulent misrepresentation, or death or personal injury caused by negligence.",
+      "id": "A-D2",
+      "reason": "Acceptable: standard carve-out for liability that cannot be excluded by law — not an uncapped commercial exposure."
+    },
+    {
+      "id": "A-D3",
+      "rule_id": "LIABILITY-002",
+      "span": "The Supplier's indemnification obligations are subject to the limitation of liability in Clause 5, except that indemnities for intellectual property infringement and for data breach shall remain uncapped.",
+      "page": 2,
+      "reason": "Acceptable: the indemnity is subject to the cap; only IP-infringement and data-breach claims stay uncapped — the playbook's preferred position."
+    }
+  ],
+  "expected_outcomes": {
+    "LIABILITY-001": "preferred",
+    "LIABILITY-002": "preferred",
+    "PAYMENT-001": "preferred",
+    "RENEWAL-001": "preferred",
+    "TERMINATION-001": "preferred",
+    "DATA-001": "preferred",
+    "SLA-001": "fallback",
+    "PRICE-001": "preferred",
+    "LAW-001": "fallback",
+    "ASSIGN-001": "preferred"
+  },
+  "playbook_version": "demo-v1",
+  "expected_approvals": []
+}

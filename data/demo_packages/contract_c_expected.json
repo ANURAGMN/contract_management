@@ -1,0 +1,469 @@
+{
+  "run_id": "sample-contract-c",
+  "status": "complete",
+  "metadata": {
+    "supplier": {
+      "value": "CleanSpace Global Facilities Pte. Ltd.",
+      "evidence": {
+        "quote": "CleanSpace Global Facilities Pte. Ltd. (\"Supplier\")",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "buyer": {
+      "value": "Acme Retail India Private Limited",
+      "evidence": {
+        "quote": "Acme Retail India Private Limited",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "contract_value": {
+      "value": "3600000",
+      "evidence": {
+        "quote": "The annual charge is INR 36,00,000",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "effective_date": {
+      "value": "2026-03-01",
+      "evidence": {
+        "quote": "1 March 2026",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "expiry_date": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "auto_renewal": {
+      "value": "yes",
+      "evidence": {
+        "quote": "shall automatically renew for successive terms of twenty-four (24) months each",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "renewal_term_months": {
+      "value": "24",
+      "evidence": {
+        "quote": "successive terms of twenty-four (24) months each",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "notice_period_days": {
+      "value": "30",
+      "evidence": {
+        "quote": "at least thirty (30) days before the end of the then-current term",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "renewal_notice_basis": {
+      "value": "before the end of the then-current term",
+      "evidence": {
+        "quote": "at least thirty (30) days before the end of the then-current term",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "payment_terms_days": {
+      "value": "45",
+      "evidence": {
+        "quote": "within forty-five (45) days (Net 45)",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "liability_cap": {
+      "value": "1x fees prior 12 months",
+      "evidence": {
+        "quote": "The aggregate liability of each party shall not exceed the fees paid in the prior twelve (12) months.",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "governing_law": {
+      "value": "Singapore (exclusive)",
+      "evidence": {
+        "quote": "This SOW is governed by the laws of Singapore, and the courts of Singapore shall have exclusive jurisdiction",
+        "page": 3
+      },
+      "uncertainty": null
+    },
+    "sla_target_pct": {
+      "value": "98.0",
+      "evidence": {
+        "quote": "measurable service level of 98% scheduled-task completion per month",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "service_credit_rule": {
+      "value": "2% per point missed, capped at 10%",
+      "evidence": {
+        "quote": "Service credits of 2% of the monthly fee apply per percentage point missed, capped at 10% of the monthly fee.",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "processes_personal_data": {
+      "value": "no",
+      "evidence": {
+        "quote": "The Services do not involve the processing of personal data",
+        "page": 3
+      },
+      "uncertainty": null
+    }
+  },
+  "findings": [
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "RENEWAL-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "shall automatically renew for successive terms of twenty-four (24) months each, unless either party gives written notice of non-renewal at least thirty (30) days before the end of the then-current term.",
+              "page": 1
+            }
+          ],
+          "extracted_value": "auto-renew 24 months, 30 days' notice",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "RENEWAL-001: renewal term 24m > 12m -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LAW-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "This SOW is governed by the laws of Singapore, and the courts of Singapore shall have exclusive jurisdiction over any dispute.",
+              "page": 3
+            }
+          ],
+          "extracted_value": "Singapore (supplier's jurisdiction only)",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "low",
+      "requires_legal": true,
+      "rule_trace": "LAW-001: supplier's foreign jurisdiction only -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "ASSIGN-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Supplier may freely assign, novate or subcontract this SOW, in whole or in part, to any third party without the prior consent of the Buyer.",
+              "page": 3
+            }
+          ],
+          "extracted_value": "free assignment by supplier",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "low",
+      "requires_legal": false,
+      "rule_trace": "ASSIGN-001: free assignment by supplier -> walk_away"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "PAYMENT-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Buyer shall pay undisputed invoices within forty-five (45) days (Net 45).",
+              "page": 1
+            }
+          ],
+          "extracted_value": "Net 45",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "PAYMENT-001: Net 45 -> preferred"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LIABILITY-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The aggregate liability of each party shall not exceed the fees paid in the prior twelve (12) months.",
+              "page": 2
+            }
+          ],
+          "extracted_value": "1x fees prior 12 months",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "high",
+      "requires_legal": true,
+      "rule_trace": "LIABILITY-001: fees paid in prior 12 months -> preferred"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "SLA-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Supplier shall meet a measurable service level of 98% scheduled-task completion per month.",
+              "page": 2
+            }
+          ],
+          "extracted_value": "98% scheduled-task completion (no platform uptime)",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "walk_away",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "SLA-001: no platform uptime commitment (task-completion % only) -> walk_away"
+    }
+  ],
+  "dropped": [],
+  "route": {
+    "route": "legal",
+    "trace": [
+      "R2: LAW-001 (legal-review rule) -> walk_away",
+      "R3 context: RENEWAL-001 / ASSIGN-001 -> walk_away"
+    ]
+  },
+  "redlines": [
+    {
+      "redline": {
+        "rule_id": "RENEWAL-001",
+        "original": {
+          "quote": "shall automatically renew for successive terms of twenty-four (24) months each, unless either party gives written notice of non-renewal at least thirty (30) days before the end of the then-current term.",
+          "page": 1
+        },
+        "proposed_text": "This SOW shall renew for successive twelve (12) month terms unless either party gives at least thirty (30) days' written notice of non-renewal before the end of the then-current term.",
+        "rationale": "Cut the renewal term from 24 to 12 months; keep the 30-day notice (playbook fallback)."
+      },
+      "passed": true,
+      "problems": []
+    },
+    {
+      "redline": {
+        "rule_id": "ASSIGN-001",
+        "original": {
+          "quote": "The Supplier may freely assign, novate or subcontract this SOW, in whole or in part, to any third party without the prior consent of the Buyer.",
+          "page": 3
+        },
+        "proposed_text": "Neither party may assign this SOW without the prior written consent of the other, save that either party may assign to an affiliate on written notice.",
+        "rationale": "Remove free supplier assignment; require consent with an affiliate-only carve-out (playbook fallback)."
+      },
+      "passed": true,
+      "problems": []
+    },
+    {
+      "redline": {
+        "rule_id": "LAW-001",
+        "original": {
+          "quote": "This SOW is governed by the laws of Singapore, and the courts of Singapore shall have exclusive jurisdiction over any dispute.",
+          "page": 3
+        },
+        "proposed_text": "This SOW is governed by the laws of India and the parties submit to a mutually agreed neutral venue for the resolution of disputes.",
+        "rationale": "Replace Singapore-only jurisdiction with India / neutral venue (playbook fallback)."
+      },
+      "passed": true,
+      "problems": []
+    }
+  ],
+  "obligations": [
+    {
+      "kind": "notice_deadline",
+      "due": "2027-01-29",
+      "owner": "procurement",
+      "source": {
+        "quote": "unless either party gives written notice of non-renewal at least thirty (30) days before the end of the then-current term",
+        "page": 1
+      },
+      "urgent": false,
+      "uncertain": false,
+      "amount_inr": null,
+      "note": null
+    },
+    {
+      "kind": "renewal_decision",
+      "due": null,
+      "owner": "procurement",
+      "source": {
+        "quote": "at least thirty (30) days before the end of the then-current term",
+        "page": 1
+      },
+      "urgent": false,
+      "uncertain": true,
+      "amount_inr": null,
+      "note": "Initial term ends 2027-02-28; confirm exact notice date."
+    },
+    {
+      "kind": "sla_review",
+      "due": null,
+      "owner": "procurement",
+      "source": {
+        "quote": "98% scheduled-task completion per month",
+        "page": 2
+      },
+      "urgent": false,
+      "uncertain": false,
+      "amount_inr": null,
+      "note": null
+    }
+  ],
+  "security": {
+    "pre": [],
+    "model": []
+  },
+  "stage_status": {
+    "intake": "ok",
+    "metadata": "sample",
+    "grounding": "ok",
+    "rules": "ok",
+    "route": "legal",
+    "redlines": "sample_fallback_drafts",
+    "source": "offline_sample"
+  },
+  "file_name": "contract_c.pdf",
+  "playbook_version": "demo-v1",
+  "credit_claim": null,
+  "quotation_comparison": {
+    "requisition_id": "PR-2026-1042",
+    "budget_inr": 4800000.0,
+    "required_uptime_percent": 99.9,
+    "comparison_horizon_months": 12,
+    "baseline": {
+      "label": "Prior year similar SaaS (illustrative)",
+      "currency": "INR",
+      "annual_recurring_fee": 4500000.0,
+      "year": 2025,
+      "notes": [
+        "Synthetic baseline for demo only."
+      ]
+    },
+    "rows": [
+      {
+        "supplier_name": "CloudSoft",
+        "source_filename": "cloudsoft.json",
+        "currency": "INR",
+        "annual_recurring_fee": 5000000.0,
+        "one_time_fee": 150000.0,
+        "normalized_annual_fee": 5000000.0,
+        "total_cost_over_horizon": 5150000.0,
+        "cost_per_user": 10000.0,
+        "budget_variance": 200000.0,
+        "budget_variance_pct": 4.17,
+        "vs_baseline_pct": 11.11,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price."
+        ],
+        "is_lowest_annual_fee": false
+      },
+      {
+        "supplier_name": "TechNova",
+        "source_filename": "technova.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4400000.0,
+        "one_time_fee": 100000.0,
+        "normalized_annual_fee": 4400000.0,
+        "total_cost_over_horizon": 4500000.0,
+        "cost_per_user": 8800.0,
+        "budget_variance": -400000.0,
+        "budget_variance_pct": -8.33,
+        "vs_baseline_pct": -2.22,
+        "uptime_percent": 99.5,
+        "sla_compliant": false,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price.",
+          "Uptime 99.5% is below required minimum 99.9%."
+        ],
+        "is_lowest_annual_fee": true
+      },
+      {
+        "supplier_name": "DataSphere",
+        "source_filename": "datasphere.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4700000.0,
+        "one_time_fee": 200000.0,
+        "normalized_annual_fee": 4700000.0,
+        "total_cost_over_horizon": 4900000.0,
+        "cost_per_user": 9400.0,
+        "budget_variance": -100000.0,
+        "budget_variance_pct": -2.08,
+        "vs_baseline_pct": 4.44,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 24,
+        "term_mismatch": true,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Term is 24 months vs comparison horizon 12 months."
+        ],
+        "is_lowest_annual_fee": false
+      }
+    ],
+    "warnings": [],
+    "notes": [
+      "Amounts are absolute currency units (INR), not lakh display labels.",
+      "Lowest annual fee is highlighted but is not an automatic recommendation.",
+      "Total cost uses a 12-month horizon when term and fees are known.",
+      "Historical baseline: Prior year similar SaaS (illustrative) (INR 4500000.0/year)."
+    ]
+  },
+  "is_sample": true,
+  "sample_label": "Sample C — auto-renew / assignment / foreign law (Legal route)",
+  "request_id": null
+}

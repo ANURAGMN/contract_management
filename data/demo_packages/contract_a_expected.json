@@ -1,0 +1,406 @@
+{
+  "run_id": "sample-contract-a",
+  "status": "complete",
+  "metadata": {
+    "supplier": {
+      "value": "Brightline IT Services LLP",
+      "evidence": {
+        "quote": "Brightline IT Services LLP (\"Supplier\")",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "buyer": {
+      "value": "Acme Retail India Private Limited",
+      "evidence": {
+        "quote": "Acme Retail India Private Limited",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "contract_value": {
+      "value": "12000000",
+      "evidence": {
+        "quote": "INR 1,20,00,000",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "effective_date": {
+      "value": "2026-01-01",
+      "evidence": {
+        "quote": "1 January 2026",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "expiry_date": {
+      "value": "2027-12-31",
+      "evidence": {
+        "quote": "31 December 2027",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "auto_renewal": {
+      "value": "no",
+      "evidence": {
+        "quote": "does not renew automatically",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "renewal_term_months": {
+      "value": null,
+      "evidence": null,
+      "uncertainty": null
+    },
+    "notice_period_days": {
+      "value": "60",
+      "evidence": {
+        "quote": "no later than 60 days",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "renewal_notice_basis": {
+      "value": "before the end of the then-current term",
+      "evidence": {
+        "quote": "no later than 60 days before the end of the then-current term",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "payment_terms_days": {
+      "value": "45",
+      "evidence": {
+        "quote": "within forty-five (45) days",
+        "page": 1
+      },
+      "uncertainty": null
+    },
+    "liability_cap": {
+      "value": "1x fees paid in prior 12 months",
+      "evidence": {
+        "quote": "shall not exceed the total fees paid by the Buyer to the Supplier in the twelve (12) months preceding",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "governing_law": {
+      "value": "India — neutral arbitration venue",
+      "evidence": {
+        "quote": "governed by the laws of India",
+        "page": 3
+      },
+      "uncertainty": null
+    },
+    "sla_target_pct": {
+      "value": "99.0",
+      "evidence": {
+        "quote": "99.0% platform availability",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "service_credit_rule": {
+      "value": "2% per point missed, capped at 15%",
+      "evidence": {
+        "quote": "service credits of 2% of the monthly fee for each percentage point missed, capped at 15%",
+        "page": 2
+      },
+      "uncertainty": null
+    },
+    "processes_personal_data": {
+      "value": "yes",
+      "evidence": {
+        "quote": "Data Processing Agreement (\"DPA\")",
+        "page": 3
+      },
+      "uncertainty": null
+    }
+  },
+  "findings": [
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "PAYMENT-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Buyer shall pay all undisputed invoices within forty-five (45) days of the date of a valid invoice (Net 45).",
+              "page": 1
+            }
+          ],
+          "extracted_value": "Net 45",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "PAYMENT-001: Net 45 -> preferred"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "SLA-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The Supplier shall maintain a measurable service level of 99.0% platform availability per calendar month.",
+              "page": 2
+            }
+          ],
+          "extracted_value": "99.0% platform availability with credits",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "fallback",
+      "severity": "medium",
+      "requires_legal": false,
+      "rule_trace": "SLA-001: 99.0% uptime < 99.9% preferred -> fallback"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "DATA-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "The parties have entered into a Data Processing Agreement (\"DPA\") in the form attached as Schedule 2",
+              "page": 3
+            }
+          ],
+          "extracted_value": "DPA present",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "high",
+      "requires_legal": true,
+      "rule_trace": "DATA-001: DPA present -> preferred"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LAW-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "Any dispute shall be referred to and finally resolved by arbitration at a mutually agreed neutral venue",
+              "page": 3
+            }
+          ],
+          "extracted_value": "India + neutral arbitration venue",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "fallback",
+      "severity": "low",
+      "requires_legal": true,
+      "rule_trace": "LAW-001: India + neutral venue -> fallback (vs preferred: India (Bengaluru courts))"
+    },
+    {
+      "grounded": {
+        "finding": {
+          "rule_id": "LIABILITY-001",
+          "found": true,
+          "evidence": [
+            {
+              "quote": "shall not exceed the total fees paid by the Buyer to the Supplier in the twelve (12) months preceding the event",
+              "page": 2
+            }
+          ],
+          "extracted_value": "1x fees prior 12 months",
+          "cross_references": [],
+          "note": null
+        },
+        "grounding": "exact",
+        "warnings": []
+      },
+      "status": "preferred",
+      "severity": "high",
+      "requires_legal": true,
+      "rule_trace": "LIABILITY-001: fees paid in prior 12 months -> preferred"
+    }
+  ],
+  "dropped": [],
+  "route": {
+    "route": "low_risk_queue",
+    "trace": [
+      "R4 note: LAW-001: India + neutral venue -> fallback",
+      "R4: remaining terms preferred/fallback"
+    ]
+  },
+  "redlines": [],
+  "obligations": [
+    {
+      "kind": "notice_deadline",
+      "due": "2027-11-01",
+      "owner": "procurement",
+      "source": {
+        "quote": "no later than 60 days before the end of the then-current term",
+        "page": 1
+      },
+      "urgent": false,
+      "uncertain": false,
+      "amount_inr": null,
+      "note": null
+    },
+    {
+      "kind": "renewal_decision",
+      "due": "2027-10-18",
+      "owner": "procurement",
+      "source": {
+        "quote": "no later than 60 days before the end of the then-current term",
+        "page": 1
+      },
+      "urgent": false,
+      "uncertain": false,
+      "amount_inr": null,
+      "note": null
+    },
+    {
+      "kind": "sla_review",
+      "due": null,
+      "owner": "procurement",
+      "source": {
+        "quote": "99.0% platform availability",
+        "page": 2
+      },
+      "urgent": false,
+      "uncertain": false,
+      "amount_inr": null,
+      "note": null
+    }
+  ],
+  "security": {
+    "pre": [],
+    "model": []
+  },
+  "stage_status": {
+    "intake": "ok",
+    "metadata": "sample",
+    "grounding": "ok",
+    "rules": "ok",
+    "route": "low_risk_queue",
+    "redlines": "skipped_no_walkaway",
+    "source": "offline_sample"
+  },
+  "file_name": "contract_a.pdf",
+  "playbook_version": "demo-v1",
+  "credit_claim": null,
+  "quotation_comparison": {
+    "requisition_id": "PR-2026-1042",
+    "budget_inr": 4800000.0,
+    "required_uptime_percent": 99.9,
+    "comparison_horizon_months": 12,
+    "baseline": {
+      "label": "Prior year similar SaaS (illustrative)",
+      "currency": "INR",
+      "annual_recurring_fee": 4500000.0,
+      "year": 2025,
+      "notes": [
+        "Synthetic baseline for demo only."
+      ]
+    },
+    "rows": [
+      {
+        "supplier_name": "CloudSoft",
+        "source_filename": "cloudsoft.json",
+        "currency": "INR",
+        "annual_recurring_fee": 5000000.0,
+        "one_time_fee": 150000.0,
+        "normalized_annual_fee": 5000000.0,
+        "total_cost_over_horizon": 5150000.0,
+        "cost_per_user": 10000.0,
+        "budget_variance": 200000.0,
+        "budget_variance_pct": 4.17,
+        "vs_baseline_pct": 11.11,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price."
+        ],
+        "is_lowest_annual_fee": false
+      },
+      {
+        "supplier_name": "TechNova",
+        "source_filename": "technova.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4400000.0,
+        "one_time_fee": 100000.0,
+        "normalized_annual_fee": 4400000.0,
+        "total_cost_over_horizon": 4500000.0,
+        "cost_per_user": 8800.0,
+        "budget_variance": -400000.0,
+        "budget_variance_pct": -8.33,
+        "vs_baseline_pct": -2.22,
+        "uptime_percent": 99.5,
+        "sla_compliant": false,
+        "term_months": 12,
+        "term_mismatch": false,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Exclusions present — verify scope before ranking on price.",
+          "Uptime 99.5% is below required minimum 99.9%."
+        ],
+        "is_lowest_annual_fee": true
+      },
+      {
+        "supplier_name": "DataSphere",
+        "source_filename": "datasphere.json",
+        "currency": "INR",
+        "annual_recurring_fee": 4700000.0,
+        "one_time_fee": 200000.0,
+        "normalized_annual_fee": 4700000.0,
+        "total_cost_over_horizon": 4900000.0,
+        "cost_per_user": 9400.0,
+        "budget_variance": -100000.0,
+        "budget_variance_pct": -2.08,
+        "vs_baseline_pct": 4.44,
+        "uptime_percent": 99.9,
+        "sla_compliant": true,
+        "term_months": 24,
+        "term_mismatch": true,
+        "scope_comparability": "comparable",
+        "not_comparable_reason": null,
+        "unresolved_fields": [],
+        "warnings": [
+          "Term is 24 months vs comparison horizon 12 months."
+        ],
+        "is_lowest_annual_fee": false
+      }
+    ],
+    "warnings": [],
+    "notes": [
+      "Amounts are absolute currency units (INR), not lakh display labels.",
+      "Lowest annual fee is highlighted but is not an automatic recommendation.",
+      "Total cost uses a 12-month horizon when term and fees are known.",
+      "Historical baseline: Prior year similar SaaS (illustrative) (INR 4500000.0/year)."
+    ]
+  },
+  "is_sample": true,
+  "sample_label": "Sample A — clean MSA (low-risk queue)",
+  "request_id": null
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "review",
+  "recording_id": "contract_g.pdf__20261020T050604Z",
+  "label": "contract_g.pdf",
+  "recorded_at": "2026-10-20T05:06:04+00:00",
+  "models": [],
+  "calls": 0,
+  "failed_calls": 0,
+  "seconds": 0.0,
+  "ai_calls": [],
+  "payload": {
+    "run_id": "20261020-0506-a6c8",
+    "status": "manual_review",
+    "metadata": null,
+    "findings": [],
+    "dropped": [],
+    "route": {
+      "route": "manual_review",
+      "trace": [
+        "manual review: extraction unreliable"
+      ]
+    },
+    "redlines": [],
+    "obligations": [],
+    "security": {
+      "pre": [],
+      "model": []
+    },
+    "stage_status": {
+      "error": "extraction unreliable"
+    },
+    "file_name": "contract_g.pdf",
+    "playbook_version": "demo-v1",
+    "credit_claim": null,
+    "quotation_comparison": null,
+    "is_sample": false,
+    "sample_label": null,
+    "request_id": null,
+    "knowledge_groundings": [],
+    "provenance": "live",
+    "reviewed_at": "2026-10-20T05:06:04+00:00",
+    "ai_calls": []
+  },
+  "meta": {
+    "status": "manual_review",
+    "route": "manual_review"
+  }
+}

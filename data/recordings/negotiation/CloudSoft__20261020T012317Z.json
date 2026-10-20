@@ -1,0 +1,819 @@
+{
+  "kind": "negotiation",
+  "recording_id": "CloudSoft__20261020T012317Z",
+  "label": "CloudSoft",
+  "recorded_at": "2026-10-20T01:23:17+00:00",
+  "models": [
+    "gemini-flash-lite-latest"
+  ],
+  "calls": 9,
+  "failed_calls": 0,
+  "seconds": 50.1,
+  "ai_calls": [
+    {
+      "agent": "StrategyAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:27+00:00",
+      "seconds": 2.67,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "EmailDraftAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:29+00:00",
+      "seconds": 4.88,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "SupplierSimAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:34+00:00",
+      "seconds": 9.64,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "AnalyzeReplyAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:44+00:00",
+      "seconds": 2.8,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "NextMoveAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:47+00:00",
+      "seconds": 5.47,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "EmailDraftAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:52+00:00",
+      "seconds": 6.09,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "SupplierSimAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:22:58+00:00",
+      "seconds": 6.19,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "AnalyzeReplyAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:23:04+00:00",
+      "seconds": 6.72,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "agent": "NextMoveAgentOutput",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:23:11+00:00",
+      "seconds": 5.69,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "payload": {
+    "backend": "live",
+    "scenario": {
+      "scenario_id": "cloudsoft_pr-2026-1042",
+      "requisition_id": "PR-2026-1042",
+      "buyer_name": "ABC Technologies",
+      "supplier": {
+        "name": "CloudSoft",
+        "style": "price_focused",
+        "firm_on": [
+          "liability"
+        ],
+        "flexible_on": [
+          "price",
+          "payment_terms"
+        ],
+        "notes": [
+          "Demo persona only — not a prediction of real supplier behaviour."
+        ]
+      },
+      "opening_quote_inr": 5000000.0,
+      "policy": {
+        "budget_ceiling_inr": 4700000.0,
+        "price_floor_inr": 4510000.0,
+        "target_price_inr": 4650000.0,
+        "min_uptime_percent": 99.9,
+        "max_term_months": 12,
+        "never_waive_data_protection": true,
+        "liability_requires_legal": true,
+        "tradable_low_priority_keys": [
+          "payment_terms",
+          "renewal_notice_days"
+        ],
+        "max_rounds": 4
+      },
+      "terms": [
+        {
+          "key": "annual_fee_inr",
+          "label": "Annual recurring fee",
+          "current_value": "5000000",
+          "target_value": "4650000",
+          "minimum_acceptable": "4510000",
+          "priority": "must_have",
+          "unit": "INR",
+          "evidence_source": null,
+          "approval_owner": "finance",
+          "resolved": false
+        },
+        {
+          "key": "uptime_percent",
+          "label": "Minimum uptime SLA",
+          "current_value": "99.9",
+          "target_value": "99.9",
+          "minimum_acceptable": "99.9",
+          "priority": "must_have",
+          "unit": "percent",
+          "evidence_source": null,
+          "approval_owner": "procurement",
+          "resolved": false
+        },
+        {
+          "key": "term_months",
+          "label": "Initial term",
+          "current_value": "12",
+          "target_value": "12",
+          "minimum_acceptable": "12",
+          "priority": "must_have",
+          "unit": "months",
+          "evidence_source": null,
+          "approval_owner": "procurement",
+          "resolved": false
+        },
+        {
+          "key": "data_protection",
+          "label": "Data protection / DPA",
+          "current_value": "confirm",
+          "target_value": "dpa_required",
+          "minimum_acceptable": "dpa_required",
+          "priority": "must_have",
+          "unit": null,
+          "evidence_source": null,
+          "approval_owner": "legal",
+          "resolved": false
+        },
+        {
+          "key": "liability",
+          "label": "Liability cap",
+          "current_value": "supplier_draft",
+          "target_value": "1x_fees_12m",
+          "minimum_acceptable": "fallback_playbook",
+          "priority": "high",
+          "unit": null,
+          "evidence_source": null,
+          "approval_owner": "legal",
+          "resolved": false
+        },
+        {
+          "key": "payment_terms",
+          "label": "Payment terms",
+          "current_value": "Net 30",
+          "target_value": "Net 45",
+          "minimum_acceptable": null,
+          "priority": "low",
+          "unit": null,
+          "evidence_source": null,
+          "approval_owner": "finance",
+          "resolved": false
+        },
+        {
+          "key": "service_credits",
+          "label": "Service credits",
+          "current_value": "confirm",
+          "target_value": "measurable_with_credits",
+          "minimum_acceptable": null,
+          "priority": "high",
+          "unit": null,
+          "evidence_source": null,
+          "approval_owner": "procurement",
+          "resolved": false
+        }
+      ],
+      "simulation_mode": true,
+      "description": "Bring CloudSoft within the ₹4,700,000 budget on PR-2026-1042 while holding 99.9% uptime, a 12-month term and data protection."
+    },
+    "state": {
+      "run_id": "neg-20261020-0652-9e86",
+      "scenario_id": "cloudsoft_pr-2026-1042",
+      "status": "NEXT_MOVE_READY",
+      "round_number": 2,
+      "current_supplier_offer": {
+        "annual_fee_inr": 4750000.0,
+        "term_months": 12,
+        "uptime_percent": 99.9,
+        "notes": [
+          "Moved annual fee closer to buyer budget at 4,750,000 INR",
+          "Maintained 12 month term and 99.9 percent uptime",
+          "Confirmed Net 45 payment terms"
+        ]
+      },
+      "buyer_last_approved_offer": null,
+      "open_issues": [
+        "annual_fee_inr",
+        "liability"
+      ],
+      "agreed_terms": [
+        "uptime_percent",
+        "term_months",
+        "payment_terms"
+      ],
+      "rejected_terms": [],
+      "concessions_buyer": [],
+      "concessions_supplier": [
+        "Flexible on payment terms such as Net 45",
+        "Reduced annual fee from 5,000,000 INR to 4,850,000 INR",
+        "Reduced annual fee from 4,850,000 INR to 4,750,000 INR",
+        "Maintained flexibility on Net 45 payment terms"
+      ],
+      "unresolved_risks": [],
+      "strategy_summary": "We are continuing to counteroffer toward our budget ceiling of 4,700,000 INR as the supplier's fee of 4,750,000 INR is still above policy limits. Liability remains open for eventual legal review, but we continue commercial negotiations without premature escalation.",
+      "pending_draft": null,
+      "pending_action": {
+        "action_type": "counteroffer",
+        "rationale": "The supplier's current annual fee of 4,750,000 INR remains above our budget ceiling of 4,700,000 INR. Following our procurement rules, we must continue to counteroffer toward our ceiling.",
+        "proposed_term_changes": [
+          {
+            "key": "annual_fee_inr",
+            "value": "4700000"
+          }
+        ],
+        "referenced_finding_ids": [],
+        "requires_escalation": false,
+        "uncertainty_note": null
+      },
+      "thread": [
+        {
+          "message_id": "buyer-5d66826a",
+          "thread_id": "neg-20261020-0652-9e86",
+          "direction": "buyer_to_supplier",
+          "subject": "Counteroffer and Requisition Update: PR-2026-1042 CloudSoft Annual Fee",
+          "body": "Dear CloudSoft Team, Thank you for your initial quote regarding requisition PR-2026-1042. While we are pleased with the alignment on the 12-month term and 99.9 percent uptime, the proposed annual fee of 5,000,000 INR exceeds our current budget ceiling. We would like to counteroffer an annual fee of 4,700,000 INR. Regarding liability wording, please note that this will be handled separately with our Legal team. We look forward to your response so we can move forward.",
+          "timestamp": "2026-10-20T01:22:34.730299+00:00",
+          "round_number": 1,
+          "simulated": true,
+          "approval_status": "simulated_sent",
+          "linked_term_keys": [
+            "annual_fee_inr",
+            "liability"
+          ],
+          "linked_finding_ids": []
+        },
+        {
+          "message_id": "supplier-4361fc75",
+          "thread_id": "neg-20261020-0652-9e86",
+          "direction": "supplier_to_buyer",
+          "subject": "Re: Counteroffer and Requisition Update: PR-2026-1042 CloudSoft Annual Fee",
+          "body": "Dear ABC Technologies Team, Thank you for your counteroffer. We appreciate your focus on finalizing PR-2026-1042. While 4,700,000 INR is a significant step, our absolute minimum for the comprehensive enterprise package including premium support is 4,850,000 INR for the 12-month term at 99.9 percent uptime. We are flexible on payment terms and can accommodate Net 45 if this fee is met. Regarding liability, we maintain our standard posture which will require review by your legal counsel. Please let us know if this adjusted figure works for your team.",
+          "timestamp": "2026-10-20T01:22:44.368071+00:00",
+          "round_number": 1,
+          "simulated": true,
+          "approval_status": "simulated_sent",
+          "linked_term_keys": [],
+          "linked_finding_ids": []
+        },
+        {
+          "message_id": "buyer-447ce0c3",
+          "thread_id": "neg-20261020-0652-9e86",
+          "direction": "buyer_to_supplier",
+          "subject": "Counteroffer Update: PR-2026-1042 CloudSoft Annual Fee",
+          "body": "Dear CloudSoft Team, Thank you for your response regarding requisition PR-2026-1042. While we appreciate your flexibility on payment terms and the movement on pricing, the proposed annual fee of 4,850,000 INR still exceeds our budget ceiling. We would like to counteroffer with an annual fee of 4,700,000 INR for the 12-month term while maintaining 99.9 percent uptime. Regarding liability wording, please note that this will be handled separately with our Legal team. We look forward to your reply.",
+          "timestamp": "2026-10-20T01:22:58.735757+00:00",
+          "round_number": 2,
+          "simulated": true,
+          "approval_status": "simulated_sent",
+          "linked_term_keys": [
+            "annual_fee_inr",
+            "liability"
+          ],
+          "linked_finding_ids": []
+        },
+        {
+          "message_id": "supplier-283cdc6d",
+          "thread_id": "neg-20261020-0652-9e86",
+          "direction": "supplier_to_buyer",
+          "subject": "Re: Counteroffer Update: PR-2026-1042 CloudSoft Annual Fee",
+          "body": "Dear ABC Technologies Team, Thank you for your continued engagement on PR-2026-1042. We understand your budgetary constraints regarding the annual fee. While 4,700,000 INR is extremely tight for us, we want to make this partnership work. We are prepared to adjust our annual fee to 4,750,000 INR for the 12-month term at 99.9 percent uptime, keeping Net 45 payment terms included. As noted, our liability posture remains firm and will require standard review by your legal counsel. Please let us know if we can converge on this figure.",
+          "timestamp": "2026-10-20T01:23:04.934280+00:00",
+          "round_number": 2,
+          "simulated": true,
+          "approval_status": "simulated_sent",
+          "linked_term_keys": [],
+          "linked_finding_ids": []
+        }
+      ],
+      "events": [
+        {
+          "event_id": "evt-c93da9ce",
+          "actor": "buyer_agent",
+          "event_type": "generate_strategy",
+          "timestamp": "2026-10-20T01:22:29.847528+00:00",
+          "state_before": "NOT_STARTED",
+          "state_after": "STRATEGY_READY",
+          "message_id": null,
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The initial annual fee of 5,000,000 INR exceeds our budget ceiling of 4,700,000 INR. We must counteroffer to negotiate the price down while keeping all non-negotiable operational and data protection terms intact.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [
+              "ev-78d88c19a2",
+              "ev-593db1782b"
+            ],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Strategy generated"
+        },
+        {
+          "event_id": "evt-9ebbceca",
+          "actor": "buyer_agent",
+          "event_type": "draft_email",
+          "timestamp": "2026-10-20T01:22:34.730299+00:00",
+          "state_before": "STRATEGY_READY",
+          "state_after": "DRAFT_READY",
+          "message_id": "buyer-5d66826a",
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The initial annual fee of 5,000,000 INR exceeds our budget ceiling of 4,700,000 INR. We must counteroffer to negotiate the price down while keeping all non-negotiable operational and data protection terms intact.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [
+              "ev-78d88c19a2",
+              "ev-593db1782b"
+            ],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Email drafted"
+        },
+        {
+          "event_id": "evt-ac773c23",
+          "actor": "system",
+          "event_type": "await_approval",
+          "timestamp": "2026-10-20T01:22:34.730299+00:00",
+          "state_before": "DRAFT_READY",
+          "state_after": "AWAITING_USER_APPROVAL",
+          "message_id": "buyer-5d66826a",
+          "action": null,
+          "reason": "Draft ready for human approval (no real send)"
+        },
+        {
+          "event_id": "evt-0ff6abf3",
+          "actor": "human",
+          "event_type": "approve_and_send",
+          "timestamp": "2026-10-20T01:22:34.730299+00:00",
+          "state_before": "AWAITING_USER_APPROVAL",
+          "state_after": "EMAIL_SENT_TO_SIMULATOR",
+          "message_id": "buyer-5d66826a",
+          "action": null,
+          "reason": "User approved outbound message to simulator (no real email sent)"
+        },
+        {
+          "event_id": "evt-b288b1db",
+          "actor": "supplier_sim",
+          "event_type": "supplier_reply",
+          "timestamp": "2026-10-20T01:22:44.368071+00:00",
+          "state_before": "EMAIL_SENT_TO_SIMULATOR",
+          "state_after": "SUPPLIER_REPLY_RECEIVED",
+          "message_id": "supplier-4361fc75",
+          "action": null,
+          "reason": "Simulated supplier reply (no real mailbox)"
+        },
+        {
+          "event_id": "evt-e13c7293",
+          "actor": "buyer_agent",
+          "event_type": "analyze_reply",
+          "timestamp": "2026-10-20T01:22:47.178140+00:00",
+          "state_before": "SUPPLIER_REPLY_RECEIVED",
+          "state_after": "RESPONSE_ANALYZED",
+          "message_id": null,
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The supplier's offered annual fee of 4,850,000 INR is still above our budget ceiling of 4,700,000 INR. Per policy, since the fee is above the ceiling, we must continue to counteroffer toward the budget ceiling rather than escalating.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Supplier reply analyzed"
+        },
+        {
+          "event_id": "evt-7aa66721",
+          "actor": "buyer_agent",
+          "event_type": "next_move",
+          "timestamp": "2026-10-20T01:22:52.651064+00:00",
+          "state_before": "RESPONSE_ANALYZED",
+          "state_after": "NEXT_MOVE_READY",
+          "message_id": null,
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The supplier's offered annual fee of 4,850,000 INR remains above our budget ceiling of 4,700,000 INR. We will continue to counteroffer at our budget ceiling while maintaining our must-have operational and compliance terms.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Next move planned — draft follow-up when ready"
+        },
+        {
+          "event_id": "evt-66f91587",
+          "actor": "buyer_agent",
+          "event_type": "draft_email",
+          "timestamp": "2026-10-20T01:22:58.735757+00:00",
+          "state_before": "NEXT_MOVE_READY",
+          "state_after": "DRAFT_READY",
+          "message_id": "buyer-447ce0c3",
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The supplier's offered annual fee of 4,850,000 INR remains above our budget ceiling of 4,700,000 INR. We will continue to counteroffer at our budget ceiling while maintaining our must-have operational and compliance terms.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Follow-up email drafted"
+        },
+        {
+          "event_id": "evt-8d1446a5",
+          "actor": "system",
+          "event_type": "await_approval",
+          "timestamp": "2026-10-20T01:22:58.735757+00:00",
+          "state_before": "DRAFT_READY",
+          "state_after": "AWAITING_USER_APPROVAL",
+          "message_id": "buyer-447ce0c3",
+          "action": null,
+          "reason": "Draft ready for human approval (no real send)"
+        },
+        {
+          "event_id": "evt-69322723",
+          "actor": "human",
+          "event_type": "approve_and_send",
+          "timestamp": "2026-10-20T01:22:58.735757+00:00",
+          "state_before": "AWAITING_USER_APPROVAL",
+          "state_after": "EMAIL_SENT_TO_SIMULATOR",
+          "message_id": "buyer-447ce0c3",
+          "action": null,
+          "reason": "User approved outbound message to simulator (no real email sent)"
+        },
+        {
+          "event_id": "evt-ae452571",
+          "actor": "supplier_sim",
+          "event_type": "supplier_reply",
+          "timestamp": "2026-10-20T01:23:04.934280+00:00",
+          "state_before": "EMAIL_SENT_TO_SIMULATOR",
+          "state_after": "SUPPLIER_REPLY_RECEIVED",
+          "message_id": "supplier-283cdc6d",
+          "action": null,
+          "reason": "Simulated supplier reply (no real mailbox)"
+        },
+        {
+          "event_id": "evt-1b9ca051",
+          "actor": "buyer_agent",
+          "event_type": "analyze_reply",
+          "timestamp": "2026-10-20T01:23:11.653608+00:00",
+          "state_before": "SUPPLIER_REPLY_RECEIVED",
+          "state_after": "RESPONSE_ANALYZED",
+          "message_id": null,
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The supplier's proposed annual fee of 4,750,000 INR is still above our budget ceiling of 4,700,000 INR. Per policy rules, we must continue to counteroffer toward our budget ceiling since the fee is above the ceiling, rather than escalating.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Supplier reply analyzed"
+        },
+        {
+          "event_id": "evt-88522d10",
+          "actor": "buyer_agent",
+          "event_type": "next_move",
+          "timestamp": "2026-10-20T01:23:17.357393+00:00",
+          "state_before": "RESPONSE_ANALYZED",
+          "state_after": "NEXT_MOVE_READY",
+          "message_id": null,
+          "action": {
+            "action_type": "counteroffer",
+            "rationale": "The supplier's current annual fee of 4,750,000 INR remains above our budget ceiling of 4,700,000 INR. Following our procurement rules, we must continue to counteroffer toward our ceiling.",
+            "proposed_term_changes": [
+              {
+                "key": "annual_fee_inr",
+                "value": "4700000"
+              }
+            ],
+            "referenced_finding_ids": [],
+            "requires_escalation": false,
+            "uncertainty_note": null
+          },
+          "reason": "Next move planned — draft follow-up when ready"
+        }
+      ],
+      "knowledge_excerpts_used": [
+        "[ev-78d88c19a2 | Procurement Policy (Demo) | v1.0 | approved | Preferred contract term]\nPreferred initial term is 12 months. Multi-year terms require Business Owner justification and Procurement approval.",
+        "[ev-9281ea158f | Procurement Policy (Demo) | v1.0 | approved | Exception policy]\nPolicy exceptions (price, term, SLA, liability) must be recorded as approval tasks with reason codes.\nNo agent or automated system may self-approve an exception.",
+        "[ev-593db1782b | Negotiation Playbook (Demo) | v1.0 | approved | Uptime / SLA]\nMandatory: 99.9% uptime with measurable credits.\nFallback: 99.5% only with Business Owner and Procurement escalation.\nWalk-away: no measurable SLA.",
+        "[ev-5b83921ae8 | Legal Clause Playbook (Demo) | v1.0 | approved | SLA approved wording]\nPreferred clause: The Supplier shall meet a measurable service level of at least 99.9% platform availability per calendar month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee.",
+        "[ev-a520134324 | Negotiation Playbook (Demo) | v1.0 | approved | Liability]\nDo not concede uncapped liability. Escalate to Legal if supplier insists.",
+        "[ev-a9c07972fc | Legal Clause Playbook (Demo) | v1.0 | approved | Indemnity]\nPreferred: indemnity within the liability cap except IP and data-breach carve-outs.\nWalk-away: uncapped general indemnity."
+      ],
+      "knowledge_evidence_ids": [
+        "ev-78d88c19a2",
+        "ev-9281ea158f",
+        "ev-593db1782b",
+        "ev-5b83921ae8",
+        "ev-a520134324",
+        "ev-a9c07972fc",
+        "ev-bb45732bf7",
+        "ev-b8531d4933"
+      ],
+      "knowledge_abstained": false,
+      "non_binding_notice": "Agreement in principle is non-binding and subject to human approval and final contract review."
+    },
+    "origins": {
+      "buyer-5d66826a": {
+        "source": "live",
+        "step": "draft",
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 4.9,
+        "calls": 1
+      },
+      "supplier-4361fc75": {
+        "source": "live",
+        "step": "supplier_reply",
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 9.6,
+        "calls": 1
+      },
+      "buyer-447ce0c3": {
+        "source": "live",
+        "step": "draft",
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 6.1,
+        "calls": 1
+      },
+      "supplier-283cdc6d": {
+        "source": "live",
+        "step": "supplier_reply",
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 6.2,
+        "calls": 1
+      }
+    },
+    "steps": [
+      {
+        "step": "strategy",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 2.7
+      },
+      {
+        "step": "draft",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 4.9
+      },
+      {
+        "step": "approve",
+        "calls": 0,
+        "ok": 0,
+        "failed": 0,
+        "models": [],
+        "seconds": 0
+      },
+      {
+        "step": "supplier_reply",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 9.6
+      },
+      {
+        "step": "analyze",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 2.8
+      },
+      {
+        "step": "next_move",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 5.5
+      },
+      {
+        "step": "draft",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 6.1
+      },
+      {
+        "step": "approve",
+        "calls": 0,
+        "ok": 0,
+        "failed": 0,
+        "models": [],
+        "seconds": 0
+      },
+      {
+        "step": "supplier_reply",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 6.2
+      },
+      {
+        "step": "analyze",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 6.7
+      },
+      {
+        "step": "next_move",
+        "calls": 1,
+        "ok": 1,
+        "failed": 0,
+        "models": [
+          "gemini-flash-lite-latest"
+        ],
+        "seconds": 5.7
+      }
+    ],
+    "ai_calls": [
+      {
+        "agent": "StrategyAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:27+00:00",
+        "seconds": 2.67,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "EmailDraftAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:29+00:00",
+        "seconds": 4.88,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "SupplierSimAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:34+00:00",
+        "seconds": 9.64,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "AnalyzeReplyAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:44+00:00",
+        "seconds": 2.8,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "NextMoveAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:47+00:00",
+        "seconds": 5.47,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "EmailDraftAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:52+00:00",
+        "seconds": 6.09,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "SupplierSimAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:22:58+00:00",
+        "seconds": 6.19,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "AnalyzeReplyAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:23:04+00:00",
+        "seconds": 6.72,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "agent": "NextMoveAgentOutput",
+        "model": "gemini-flash-lite-latest",
+        "started_at": "2026-10-20T01:23:11+00:00",
+        "seconds": 5.69,
+        "ok": true,
+        "attempts": 1,
+        "error": null
+      }
+    ]
+  },
+  "meta": {
+    "status": "NEXT_MOVE_READY",
+    "rounds": 2,
+    "requisition_id": "PR-2026-1042"
+  }
+}

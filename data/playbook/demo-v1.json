@@ -1,0 +1,115 @@
+{
+  "version": "demo-v1",
+  "rules": [
+    {
+      "id": "LIABILITY-001",
+      "topic": "Liability cap",
+      "description": "Find the overall limitation of liability clause. Extract the cap as stated (e.g. '1x annual fees', '1x fees paid in prior 12 months', 'uncapped'). If the cap is qualified by an exception ('except as set out in clause X'), read that clause and note it in cross_references.",
+      "preferred": "1x fees paid in the prior 12 months (or equivalent trailing-12-month fees)",
+      "fallback": "1x annual fees",
+      "walk_away": "Uncapped",
+      "severity": "high",
+      "legal_review": true,
+      "fallback_text": "The total aggregate liability of each party under this Agreement shall not exceed the total fees paid by the Buyer to the Supplier in the twelve (12) months preceding the event giving rise to the claim."
+    },
+    {
+      "id": "LIABILITY-002",
+      "topic": "Indemnity carve-outs",
+      "description": "Find indemnity obligations and determine whether they sit inside or outside the liability cap. Extract whether general indemnity is capped. ALWAYS check whether any indemnity is carved out of the cap ('notwithstanding', 'except as set out in', 'shall not be subject to any limitation'). IP and data-breach carve-outs are acceptable; an uncapped general indemnity is not.",
+      "preferred": "Indemnity within the cap, except IP and data breach carve-outs",
+      "fallback": "Separate indemnity cap <= 2x annual fees",
+      "walk_away": "Uncapped general indemnity",
+      "severity": "high",
+      "legal_review": true,
+      "fallback_text": "The Supplier's indemnification obligations under this Clause shall be subject to a separate aggregate cap not exceeding two (2) times the annual fees, save that indemnities for intellectual property infringement and data breach shall remain uncapped."
+    },
+    {
+      "id": "PAYMENT-001",
+      "topic": "Payment terms",
+      "description": "Find the payment-terms clause. Extract the number of days the Buyer has to pay (e.g. 'Net 15', 'Net 30', '45 days from invoice').",
+      "preferred": "Net 45 or longer",
+      "fallback": "Net 30 (with Finance approval)",
+      "walk_away": "Shorter than Net 30",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "The Buyer shall pay all undisputed invoices within thirty (30) days of the date of a valid invoice."
+    },
+    {
+      "id": "RENEWAL-001",
+      "topic": "Auto-renewal",
+      "description": "Find the term and renewal clause. Extract whether the contract auto-renews, the renewal term length in months, and the notice period required to prevent renewal.",
+      "preferred": "No auto-renewal, or notice period of 60 days",
+      "fallback": "Auto-renew with notice 30–59 days, or notice longer than 60 days (process burden)",
+      "walk_away": "Notice < 30 days, or renewal term > 12 months",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "This Agreement shall renew for successive twelve (12) month terms unless either party gives at least sixty (60) days' written notice of non-renewal before the end of the then-current term."
+    },
+    {
+      "id": "TERMINATION-001",
+      "topic": "Termination for convenience",
+      "description": "Find the termination clause. Extract whether the Buyer has a right to terminate for convenience and the notice period required.",
+      "preferred": "Buyer may terminate for convenience on 30 days' notice",
+      "fallback": "Buyer may terminate for convenience on 60 days' notice",
+      "walk_away": "No buyer convenience right",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "The Buyer may terminate this Agreement for convenience at any time on sixty (60) days' prior written notice to the Supplier."
+    },
+    {
+      "id": "DATA-001",
+      "topic": "Data protection",
+      "description": "Determine whether the contract involves processing of personal data and whether a Data Processing Agreement (DPA) or equivalent clause is present. Only applies where personal data is processed.",
+      "preferred": "DPA or equivalent clause present",
+      "fallback": "Supplier commits to sign a DPA before go-live",
+      "walk_away": "No DPA where personal data is processed",
+      "severity": "high",
+      "legal_review": true,
+      "fallback_text": "The parties shall enter into a Data Processing Agreement consistent with applicable data protection law before any processing of personal data commences."
+    },
+    {
+      "id": "SLA-001",
+      "topic": "Service levels",
+      "description": "Find the platform uptime / availability SLA and service-credit rule. Support-ticket response percentages alone are not an uptime commitment. Preferred minimum uptime is 99.9% with credits.",
+      "preferred": "Measurable platform uptime >= 99.9% with service credits",
+      "fallback": "Measurable platform uptime >= 99.0% (credits negotiable)",
+      "walk_away": "No platform uptime SLA, ticket-only SLA, or uptime below 99.0%",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "The Supplier shall meet a measurable service level of at least 99.9% platform availability per calendar month, with service credits of 5% of the monthly fee per percentage point missed, capped at 20% of the monthly fee."
+    },
+    {
+      "id": "PRICE-001",
+      "topic": "Price changes",
+      "description": "Find the pricing / price-change clause. Extract whether price is fixed for the term, and if it can increase, the cap on annual increases (e.g. 'CPI', '5%', '8%', 'unilateral').",
+      "preferred": "Fixed for the term",
+      "fallback": "Annual increase capped at CPI or 5%",
+      "walk_away": "Unilateral increases, or any annual increase above 5%",
+      "severity": "medium",
+      "legal_review": false,
+      "fallback_text": "Fees are fixed for the initial term. Any increase on renewal shall not exceed the lower of CPI or five percent (5%) per annum."
+    },
+    {
+      "id": "LAW-001",
+      "topic": "Governing law",
+      "description": "Find the governing-law and jurisdiction clause. Extract the governing law and the exclusive courts/venue.",
+      "preferred": "India (Bengaluru courts)",
+      "fallback": "Mutually agreed neutral venue",
+      "walk_away": "Supplier's foreign jurisdiction only",
+      "severity": "low",
+      "legal_review": true,
+      "fallback_text": "This Agreement is governed by the laws of India and the parties submit to a mutually agreed neutral venue for the resolution of disputes."
+    },
+    {
+      "id": "ASSIGN-001",
+      "topic": "Assignment",
+      "description": "Find the assignment clause. Extract whether the Supplier may assign the contract and under what conditions (consent required, affiliates only, free assignment).",
+      "preferred": "No assignment without consent",
+      "fallback": "Assignment to affiliates on notice",
+      "walk_away": "Free assignment by supplier",
+      "severity": "low",
+      "legal_review": false,
+      "fallback_text": "Neither party may assign this Agreement without the prior written consent of the other, save that either party may assign to an affiliate on written notice."
+    }
+  ]
+}

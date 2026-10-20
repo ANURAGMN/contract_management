@@ -1,0 +1,92 @@
+{
+  "scenario_id": "cloudsoft_pr2026",
+  "requisition_id": "PR-2026-1042",
+  "buyer_name": "ABC Technologies",
+  "description": "Illustrative negotiation to bring CloudSoft within the INR 48 lakh budget while holding must-have SLA/term/data-protection terms.",
+  "simulation_mode": true,
+  "supplier": {
+    "name": "CloudSoft",
+    "style": "price_focused",
+    "firm_on": ["liability"],
+    "flexible_on": ["price", "payment_terms"],
+    "notes": ["Demo persona only — not a prediction of real supplier behaviour."]
+  },
+  "opening_quote_inr": 5000000,
+  "policy": {
+    "budget_ceiling_inr": 4800000,
+    "price_floor_inr": 4600000,
+    "target_price_inr": 4750000,
+    "min_uptime_percent": 99.9,
+    "max_term_months": 12,
+    "never_waive_data_protection": true,
+    "liability_requires_legal": true,
+    "tradable_low_priority_keys": ["payment_terms", "renewal_notice_days"],
+    "max_rounds": 4
+  },
+  "terms": [
+    {
+      "key": "annual_fee_inr",
+      "label": "Annual recurring fee",
+      "current_value": "5000000",
+      "target_value": "4750000",
+      "minimum_acceptable": "4600000",
+      "priority": "must_have",
+      "unit": "INR",
+      "approval_owner": "finance"
+    },
+    {
+      "key": "uptime_percent",
+      "label": "Minimum uptime SLA",
+      "current_value": "99.9",
+      "target_value": "99.9",
+      "minimum_acceptable": "99.9",
+      "priority": "must_have",
+      "unit": "percent",
+      "approval_owner": "procurement"
+    },
+    {
+      "key": "term_months",
+      "label": "Initial term",
+      "current_value": "12",
+      "target_value": "12",
+      "minimum_acceptable": "12",
+      "priority": "must_have",
+      "unit": "months",
+      "approval_owner": "procurement"
+    },
+    {
+      "key": "data_protection",
+      "label": "Data protection / DPA",
+      "current_value": "confirm",
+      "target_value": "dpa_required",
+      "minimum_acceptable": "dpa_required",
+      "priority": "must_have",
+      "approval_owner": "legal"
+    },
+    {
+      "key": "liability",
+      "label": "Liability cap",
+      "current_value": "supplier_draft",
+      "target_value": "1x_fees_12m",
+      "minimum_acceptable": "fallback_playbook",
+      "priority": "high",
+      "approval_owner": "legal"
+    },
+    {
+      "key": "payment_terms",
+      "label": "Payment terms",
+      "current_value": "Net 30",
+      "target_value": "Net 45",
+      "priority": "low",
+      "approval_owner": "finance"
+    },
+    {
+      "key": "service_credits",
+      "label": "Service credits",
+      "current_value": "confirm",
+      "target_value": "measurable_with_credits",
+      "priority": "high",
+      "approval_owner": "procurement"
+    }
+  ]
+}

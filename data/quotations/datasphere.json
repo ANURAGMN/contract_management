@@ -1,0 +1,15 @@
+{
+  "supplier_name": "DataSphere",
+  "currency": "INR",
+  "annual_recurring_fee": 4700000,
+  "one_time_fee": 200000,
+  "taxes_included": false,
+  "user_count": 500,
+  "term_months": 24,
+  "uptime_percent": 99.9,
+  "support_scope": "24x7 L1-L3",
+  "payment_terms": "Net 30",
+  "exclusions": [],
+  "source_filename": "datasphere.json",
+  "notes": ["24-month term — not directly equal to 12-month offers"]
+}

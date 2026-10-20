@@ -1,0 +1,126 @@
+{
+  "version": "approval-routing-v1",
+  "description": "Demo defaults for exception routing — not legal advice or an approved enterprise policy.",
+  "rules": [
+    {
+      "id": "AR-LEGAL-LIABILITY",
+      "priority": 10,
+      "match": {
+        "rule_ids": ["LIABILITY-001", "LIABILITY-002"],
+        "statuses": ["walk_away", "not_found", "unclear"]
+      },
+      "teams": ["legal"],
+      "severity": "high",
+      "reason_code": "liability_exception",
+      "reason_template": "Liability / indemnity exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-LEGAL-LAW",
+      "priority": 20,
+      "match": {
+        "rule_ids": ["LAW-001"],
+        "statuses": ["walk_away", "unclear"]
+      },
+      "teams": ["legal"],
+      "severity": "medium",
+      "reason_code": "governing_law",
+      "reason_template": "Governing law / venue exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-LEGAL-RENEWAL",
+      "priority": 30,
+      "match": {
+        "rule_ids": ["RENEWAL-001", "TERMINATION-001", "ASSIGN-001"],
+        "statuses": ["walk_away", "unclear"]
+      },
+      "teams": ["legal"],
+      "severity": "medium",
+      "reason_code": "term_renewal_assignment",
+      "reason_template": "Term / renewal / assignment exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-SECURITY-DATA",
+      "priority": 40,
+      "match": {
+        "rule_ids": ["DATA-001"],
+        "statuses": ["walk_away", "not_found", "unclear"]
+      },
+      "teams": ["security_privacy", "legal"],
+      "severity": "high",
+      "reason_code": "privacy_dpa",
+      "reason_template": "Data protection / DPA exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-PROCUREMENT-PRICE",
+      "priority": 50,
+      "match": {
+        "rule_ids": ["PRICE-001", "PAYMENT-001"],
+        "statuses": ["walk_away", "unclear"]
+      },
+      "teams": ["procurement", "finance"],
+      "severity": "medium",
+      "reason_code": "commercial_variance",
+      "reason_template": "Commercial / payment exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-OWNER-SLA",
+      "priority": 60,
+      "match": {
+        "rule_ids": ["SLA-001"],
+        "statuses": ["walk_away", "not_found", "unclear"]
+      },
+      "teams": ["business_owner", "procurement"],
+      "severity": "medium",
+      "reason_code": "operational_sla",
+      "reason_template": "SLA / operational exception on {rule_id} ({status})",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    },
+    {
+      "id": "AR-NEEDS-INFO",
+      "priority": 70,
+      "match": {
+        "rule_ids": ["*"],
+        "statuses": ["unclear"],
+        "missing_evidence": true
+      },
+      "teams": ["procurement"],
+      "severity": "medium",
+      "reason_code": "needs_information",
+      "reason_template": "Missing or conflicting evidence on {rule_id}",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"],
+      "initial_status": "needs_information"
+    },
+    {
+      "id": "AR-SECURITY-FLAG",
+      "priority": 5,
+      "match": {
+        "security_flag": true
+      },
+      "teams": ["security_privacy"],
+      "severity": "high",
+      "reason_code": "security_flag",
+      "reason_template": "Security / injection flag requires human review",
+      "mandatory_decision": true,
+      "required_inputs": ["decision_reason"]
+    }
+  ],
+  "team_roles": {
+    "procurement": ["procurement", "admin"],
+    "legal": ["legal", "admin"],
+    "security_privacy": ["security_privacy", "admin"],
+    "finance": ["finance", "admin"],
+    "business_owner": ["business_owner", "admin"]
+  }
+}

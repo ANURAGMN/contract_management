@@ -1,0 +1,286 @@
+{
+  "runs_per_contract": 1,
+  "sample": "15 issues + 4 decoys",
+  "contracts": [
+    {
+      "contract": "contract_a",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          0,
+          2
+        ],
+        "label": "0/2"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 0.0,
+      "precision_min": 0.0,
+      "grounding_mean": 1.0,
+      "metadata_accuracy": {
+        "min": [
+          6,
+          6
+        ],
+        "label": "6/6"
+      },
+      "routing_ok_all_runs": false,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "low_risk_queue",
+      "status": [
+        "complete"
+      ],
+      "grounding_breakdown": [
+        {
+          "exact": 10
+        }
+      ]
+    },
+    {
+      "contract": "contract_b",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          1,
+          2
+        ],
+        "label": "1/2"
+      },
+      "overall_recall": {
+        "min": [
+          3,
+          4
+        ],
+        "label": "3/4"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 0.6,
+      "precision_min": 0.6,
+      "grounding_mean": 1.0,
+      "metadata_accuracy": {
+        "min": [
+          5,
+          5
+        ],
+        "label": "5/5"
+      },
+      "routing_ok_all_runs": true,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "legal",
+      "status": [
+        "complete"
+      ],
+      "grounding_breakdown": [
+        {
+          "exact": 10
+        }
+      ]
+    },
+    {
+      "contract": "contract_c",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          2,
+          4
+        ],
+        "label": "2/4"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 0.5,
+      "precision_min": 0.5,
+      "grounding_mean": 1.0,
+      "metadata_accuracy": {
+        "min": [
+          5,
+          5
+        ],
+        "label": "5/5"
+      },
+      "routing_ok_all_runs": false,
+      "route_got": [
+        "manual_review"
+      ],
+      "route_want": "legal",
+      "status": [
+        "manual_review"
+      ],
+      "grounding_breakdown": [
+        {
+          "exact": 10
+        }
+      ]
+    },
+    {
+      "contract": "contract_d",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          1
+        ],
+        "label": "0/1"
+      },
+      "overall_recall": {
+        "min": [
+          2,
+          3
+        ],
+        "label": "2/3"
+      },
+      "obligations": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "security": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "precision_mean": 1.0,
+      "precision_min": 1.0,
+      "grounding_mean": 1.0,
+      "metadata_accuracy": {
+        "min": [
+          5,
+          5
+        ],
+        "label": "5/5"
+      },
+      "routing_ok_all_runs": false,
+      "route_got": [
+        "manual_review"
+      ],
+      "route_want": "legal",
+      "status": [
+        "manual_review"
+      ],
+      "grounding_breakdown": [
+        {
+          "exact": 10
+        }
+      ]
+    },
+    {
+      "contract": "contract_e",
+      "runs": 1,
+      "high_severity_recall": {
+        "min": [
+          0,
+          0
+        ],
+        "label": "0/0"
+      },
+      "overall_recall": {
+        "min": [
+          2,
+          2
+        ],
+        "label": "2/2"
+      },
+      "obligations": {
+        "min": [
+          0,
+          2
+        ],
+        "label": "0/2"
+      },
+      "security": {
+        "min": [
+          1,
+          1
+        ],
+        "label": "1/1"
+      },
+      "precision_mean": 0.5,
+      "precision_min": 0.5,
+      "grounding_mean": 1.0,
+      "metadata_accuracy": {
+        "min": [
+          7,
+          7
+        ],
+        "label": "7/7"
+      },
+      "routing_ok_all_runs": false,
+      "route_got": [
+        "legal"
+      ],
+      "route_want": "procurement_owner",
+      "status": [
+        "complete"
+      ],
+      "grounding_breakdown": [
+        {
+          "exact": 10
+        }
+      ]
+    }
+  ],
+  "hard_fails": [
+    "contract_b: high-severity issue missed (1/2)",
+    "contract_d: high-severity issue missed (0/1)"
+  ],
+  "passed": false
+}

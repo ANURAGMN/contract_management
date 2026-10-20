@@ -1,0 +1,134 @@
+{
+  "contract": "contract_c.pdf",
+  "expected_route": "legal",
+  "metadata": {
+    "supplier": "CleanSpace Global Facilities Pte. Ltd.",
+    "buyer": "Acme Retail India Private Limited",
+    "effective_date": "2026-03-01",
+    "notice_period_days": "30",
+    "renewal_term_months": "24"
+  },
+  "issues": [
+    {
+      "id": "C1",
+      "type": "deviation",
+      "rule_id": "RENEWAL-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 1,
+      "span": "shall automatically renew for successive terms of twenty-four (24) months each, unless either party gives written notice of non-renewal at least thirty (30) days before",
+      "redline_must": [
+        "renewal term <= 12 months or notice >= 30 days"
+      ]
+    },
+    {
+      "id": "C2",
+      "type": "deviation",
+      "rule_id": "ASSIGN-001",
+      "severity": "low",
+      "status": "walk_away",
+      "page": 3,
+      "span": "The Supplier may freely assign, novate or subcontract this SOW, in whole or in part, to any third party without the prior consent of the Buyer.",
+      "redline_must": [
+        "consent or affiliate-only limit added"
+      ]
+    },
+    {
+      "id": "C3",
+      "type": "deviation",
+      "rule_id": "LAW-001",
+      "severity": "low",
+      "status": "walk_away",
+      "page": 3,
+      "span": "This SOW is governed by the laws of Singapore, and the courts of Singapore shall have exclusive jurisdiction",
+      "redline_must": [
+        "India or neutral venue"
+      ]
+    },
+    {
+      "id": "C4",
+      "type": "deviation",
+      "rule_id": "SLA-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 2,
+      "span": "The Supplier shall meet a measurable service level of 98% scheduled-task completion per month",
+      "redline_must": [
+        "platform uptime 99.9% with service credits"
+      ]
+    },
+    {
+      "id": "C5",
+      "type": "obligation",
+      "kind": "notice_deadline",
+      "page": 1,
+      "span": "unless either party gives written notice of non-renewal at least thirty (30) days before the end of the then-current term",
+      "due": "2027-01-29",
+      "amount_inr": null,
+      "label_note": "Initial Term ends 2027-02-28 (12 months from 1 Mar 2026); 30 days before."
+    }
+  ],
+  "decoys": [
+    {
+      "rule_id": "RENEWAL-001",
+      "page": 4,
+      "span": "All notices under this SOW shall be sent to: for the Buyer, the Head of Procurement, Acme Retail India Private Limited, Bengaluru; for the Supplier, the Contracts Manager, CleanSpace Global Facilities Pte. Ltd., Singapore.",
+      "id": "C-D1",
+      "reason": "Not a governing-law or renewal clause: a Singapore notice address does not change the governing law (that deviation is C3)."
+    },
+    {
+      "id": "C-D2",
+      "rule_id": "LIABILITY-001",
+      "span": "The aggregate liability of each party shall not exceed the fees paid in the prior twelve (12) months.",
+      "page": 2,
+      "reason": "Acceptable: trailing-12-month fees cap is the preferred position."
+    },
+    {
+      "id": "C-D3",
+      "rule_id": "LIABILITY-002",
+      "span": "The Supplier shall indemnify the Buyer for third-party claims arising from the Services, subject to the limitation of liability in Clause 5, except that indemnities for data breach shall remain uncapped.",
+      "page": 2,
+      "reason": "Acceptable: the indemnity is subject to the cap; only data-breach claims stay uncapped — the playbook's preferred position."
+    }
+  ],
+  "expected_outcomes": {
+    "LIABILITY-001": "preferred",
+    "LIABILITY-002": "preferred",
+    "PAYMENT-001": "preferred",
+    "RENEWAL-001": "walk_away",
+    "TERMINATION-001": "preferred",
+    "DATA-001": "preferred",
+    "SLA-001": "walk_away",
+    "PRICE-001": "fallback",
+    "LAW-001": "walk_away",
+    "ASSIGN-001": "walk_away"
+  },
+  "playbook_version": "demo-v1",
+  "expected_approvals": [
+    {
+      "rule_id": "ASSIGN-001",
+      "teams": [
+        "legal"
+      ]
+    },
+    {
+      "rule_id": "LAW-001",
+      "teams": [
+        "legal"
+      ]
+    },
+    {
+      "rule_id": "RENEWAL-001",
+      "teams": [
+        "legal"
+      ]
+    },
+    {
+      "rule_id": "SLA-001",
+      "teams": [
+        "business_owner",
+        "procurement"
+      ]
+    }
+  ]
+}

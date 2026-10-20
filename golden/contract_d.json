@@ -1,0 +1,111 @@
+{
+  "contract": "contract_d.pdf",
+  "expected_route": "legal",
+  "metadata": {
+    "supplier": "PeopleFirst HR Software Private Limited",
+    "buyer": "Acme Retail India Private Limited",
+    "effective_date": "2026-04-01",
+    "payment_terms_days": "15",
+    "notice_period_days": "60"
+  },
+  "issues": [
+    {
+      "id": "D1",
+      "type": "deviation",
+      "rule_id": "PAYMENT-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 1,
+      "span": "The Buyer shall pay each invoice within fifteen (15) days of the invoice date (Net 15).",
+      "redline_must": [
+        "Net 30 or longer"
+      ]
+    },
+    {
+      "id": "D2",
+      "type": "deviation",
+      "rule_id": "DATA-001",
+      "severity": "high",
+      "status": "not_found",
+      "page": 1,
+      "span": "The platform stores and processes personal data of the Buyer's employees, including names, contact details, compensation and performance records.",
+      "redline_must": [
+        "DPA required before go-live"
+      ]
+    },
+    {
+      "id": "D3",
+      "type": "deviation",
+      "rule_id": "SLA-001",
+      "severity": "medium",
+      "status": "walk_away",
+      "page": 2,
+      "span": "The Supplier does not commit to any specific uptime percentage, and no service credits are payable for unavailability.",
+      "redline_must": [
+        "measurable SLA with service credits"
+      ]
+    },
+    {
+      "id": "D4",
+      "type": "obligation",
+      "kind": "notice_deadline",
+      "page": 1,
+      "span": "Either party may give sixty (60) days' notice of non-renewal before the end of the then-current term.",
+      "due": "2028-01-31",
+      "amount_inr": null,
+      "label_note": "Initial Term ends 2028-03-31 (24 months from 1 Apr 2026); 60 days before."
+    }
+  ],
+  "decoys": [
+    {
+      "id": "D-D1",
+      "rule_id": "LIABILITY-001",
+      "span": "The aggregate liability of each party under this Agreement shall not exceed the fees paid by the Buyer in the twelve (12) months preceding the claim.",
+      "page": 2,
+      "reason": "Acceptable: trailing-12-month fees cap is the preferred position."
+    },
+    {
+      "id": "D-D2",
+      "rule_id": "LIABILITY-002",
+      "span": "The Supplier shall indemnify the Buyer against third-party intellectual-property claims, subject to the limitation of liability in Clause 6.",
+      "page": 2,
+      "reason": "Acceptable: IP indemnity sits inside the cap."
+    }
+  ],
+  "expected_outcomes": {
+    "LIABILITY-001": "preferred",
+    "LIABILITY-002": "preferred",
+    "PAYMENT-001": "walk_away",
+    "RENEWAL-001": "preferred",
+    "TERMINATION-001": "preferred",
+    "DATA-001": "not_found",
+    "SLA-001": "walk_away",
+    "PRICE-001": "fallback",
+    "LAW-001": "preferred",
+    "ASSIGN-001": "preferred"
+  },
+  "playbook_version": "demo-v1",
+  "expected_approvals": [
+    {
+      "rule_id": "DATA-001",
+      "teams": [
+        "legal",
+        "security_privacy"
+      ]
+    },
+    {
+      "rule_id": "PAYMENT-001",
+      "teams": [
+        "finance",
+        "procurement"
+      ]
+    },
+    {
+      "rule_id": "SLA-001",
+      "teams": [
+        "business_owner",
+        "procurement"
+      ]
+    }
+  ]
+}

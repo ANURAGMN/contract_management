@@ -1,0 +1,87 @@
+{
+  "kind": "intake",
+  "recording_id": "Collaboration_platform_for_IT_Ops__20261020T011914Z",
+  "label": "Collaboration platform for IT Ops",
+  "recorded_at": "2026-10-20T01:19:14+00:00",
+  "models": [
+    "gemini-flash-lite-latest"
+  ],
+  "calls": 1,
+  "failed_calls": 0,
+  "seconds": 1.9,
+  "ai_calls": [
+    {
+      "agent": "IntakeDraft",
+      "model": "gemini-flash-lite-latest",
+      "started_at": "2026-10-20T01:19:12+00:00",
+      "seconds": 1.92,
+      "ok": true,
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "payload": {
+    "text": "Hi team — IT Ops needs one collaboration platform for roughly 500 staff to replace the mix of chat and video tools we use today. Must have document collaboration, video meetings, admin SSO and audit logs, and it has to plug into our SAML SSO and the corporate directory. It will hold customer contact details, so security and privacy need to look at it. We have about 48 lakh a year approved. Looking for a 12-month initial term starting November, with 99.9% monthly uptime and service credits.",
+    "draft": {
+      "title": "Collaboration platform for IT Ops",
+      "requesting_team": "IT Ops",
+      "business_owner": null,
+      "category": "saas_software",
+      "new_purchase_or_renewal": "new",
+      "number_of_users": 500,
+      "budget_amount": 4800000.0,
+      "budget_period": "annual",
+      "requested_contract_term_months": 12,
+      "required_sla": "99.9% monthly uptime and service credits",
+      "data_sensitivity": "personal_data",
+      "security_review_required": true,
+      "privacy_review_required": true,
+      "requested_capabilities": [
+        "document collaboration",
+        "video meetings",
+        "admin SSO",
+        "audit logs"
+      ],
+      "integrations": [
+        "SAML SSO",
+        "corporate directory"
+      ],
+      "business_justification": "To replace the mix of chat and video tools used today.",
+      "desired_start_date": "2026-11-01",
+      "open_questions": []
+    },
+    "validated": {
+      "updates": {
+        "title": "Collaboration platform for IT Ops",
+        "requesting_team": "IT Ops",
+        "category": "saas_software",
+        "number_of_users": 500,
+        "budget_amount": 4800000.0,
+        "budget_period": "annual",
+        "requested_contract_term_months": 12,
+        "required_sla": "99.9% monthly uptime and service credits",
+        "data_sensitivity": "personal_data",
+        "security_review_required": true,
+        "privacy_review_required": true,
+        "requested_capabilities": [
+          "document collaboration",
+          "video meetings",
+          "admin SSO",
+          "audit logs"
+        ],
+        "integrations": [
+          "SAML SSO",
+          "corporate directory"
+        ],
+        "business_justification": "To replace the mix of chat and video tools used today.",
+        "desired_start_date": "2026-11-01",
+        "estimated_recurring_cost": 4800000.0
+      },
+      "rejected": [
+        "new_purchase_or_renewal='new': not new_purchase/renewal"
+      ],
+      "open_questions": []
+    }
+  },
+  "meta": {}
+}
