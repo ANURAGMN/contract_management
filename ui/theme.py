@@ -45,7 +45,9 @@ ROUTES = {
 
 _CSS = """
 <style>
-.block-container{padding-top:2.25rem;padding-bottom:4rem;max-width:1200px}
+.block-container{padding-top:5rem;padding-bottom:4rem;max-width:1200px}
+/* Streamlit Cloud shows a header bar (Share, GitHub) over the page top: keep titles below it */
+[data-testid="stMainBlockContainer"]{padding-top:5rem}
 h1{letter-spacing:-0.015em}
 [data-testid="stMetric"]{background:#FFFFFF}
 [data-testid="stMetricLabel"] p{color:#5B5F66;font-weight:500}
